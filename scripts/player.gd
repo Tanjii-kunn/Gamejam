@@ -33,8 +33,6 @@ func _physics_process(delta: float) -> void:
 
 	if texture_progress_bar.value < 10:
 		$CanvasLayer/TextureProgressBar/regentimer.start()
-	elif texture_progress_bar.value == 10:
-		$CanvasLayer/TextureProgressBar/regentimer.stop()
 
 
 func apply_gravity(delta: float):
@@ -91,4 +89,5 @@ func shoot():
 
 
 func _on_regentimer_timeout() -> void:
+	print("jeea")
 	texture_progress_bar.value += 1

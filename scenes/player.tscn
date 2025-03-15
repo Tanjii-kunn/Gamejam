@@ -155,7 +155,7 @@ position = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_u8vuu")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.101907
+frame_progress = 0.381079
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1.25, -1.265)
@@ -191,6 +191,6 @@ texture_progress = ExtResource("21_4ni07")
 metadata/_edit_use_anchors_ = true
 
 [node name="regentimer" type="Timer" parent="CanvasLayer/TextureProgressBar"]
-wait_time = 0.7
+wait_time = 0.3
 
 [connection signal="timeout" from="CanvasLayer/TextureProgressBar/regentimer" to="." method="_on_regentimer_timeout"]
