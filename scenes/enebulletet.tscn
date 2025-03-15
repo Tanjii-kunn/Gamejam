@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://1vl4u67tl7qd"]
+
+[ext_resource type="Script" uid="uid://d2rapbn8f7n1y" path="res://scripts/enebulletet.gd" id="1_4umwg"]
+[ext_resource type="Texture2D" uid="uid://dsqd30jsqmqnq" path="res://assests/All_Fire_Bullet_Pixel_16x16_01.png" id="1_ivo10"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4umwg"]
+radius = 2.99928
+height = 5.99988
+
+[node name="enebulletet" type="Area2D"]
+script = ExtResource("1_4umwg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ivo10")
+region_enabled = true
+region_rect = Rect2(181.701, 245.458, 5.54036, 5.40523)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -1.57706
+shape = SubResource("CapsuleShape2D_4umwg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
