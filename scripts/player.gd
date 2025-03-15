@@ -32,8 +32,9 @@ func _physics_process(delta: float) -> void:
 		handle_animation()
 
 	if texture_progress_bar.value < 10:
-		texture_progress_bar.value += 0.1
-		
+		$CanvasLayer/TextureProgressBar/regentimer.start()
+	elif texture_progress_bar.value == 10:
+		$CanvasLayer/TextureProgressBar/regentimer.stop()
 
 
 func apply_gravity(delta: float):
@@ -87,3 +88,7 @@ func shoot():
 	# Start cooldown timer
 	await get_tree().create_timer(shoot_cooldown).timeout
 	can_shoot = true  # Allow shooting again
+
+
+func _on_regentimer_timeout() -> void:
+	texture_progress_bar.value += 1
