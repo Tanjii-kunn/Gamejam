@@ -29,6 +29,11 @@ config/features=PackedStringArray("4.4", "GL Compatibility")
 
 Bridge="*res://addons/playgama_bridge/bridge.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/playgama_bridge/plugin.cfg")
