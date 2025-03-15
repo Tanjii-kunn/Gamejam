@@ -1,11 +1,12 @@
 extends TextureProgressBar
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	if value < 10:
+		print("low")
+		$regentimer.start()
+	elif value == 10:
+		$regentimer.stop()
+		print("high")
+
+func _on_regentimer_timeout() -> void:
+	value += 1

@@ -16,7 +16,7 @@ offset_bottom = 10.0
 grow_horizontal = 2
 scale = Vector2(6, 6)
 max_value = 10.0
-value = 3.0
+value = 10.0
 texture_under = ExtResource("1_ulkio")
 texture_over = ExtResource("2_y8nn8")
 texture_progress = ExtResource("3_25yk6")
@@ -25,3 +25,5 @@ metadata/_edit_use_anchors_ = true
 
 [node name="regentimer" type="Timer" parent="."]
 wait_time = 0.3
+
+[connection signal="timeout" from="regentimer" to="." method="_on_regentimer_timeout"]
