@@ -10,7 +10,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_shooting = false
 @export var move: bool = false
 @onready var bullet_scene = preload("uid://b10v1out16h0v")  # Load bullet scene
-@onready var texture_progress_bar: TextureProgressBar = $CanvasLayer/TextureProgressBar
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):  # Default is "Esc" key
@@ -30,9 +29,6 @@ func _physics_process(delta: float) -> void:
 		handle_jump()
 		handle_movement()
 		handle_animation()
-
-	if texture_progress_bar.value < 10:
-		$CanvasLayer/TextureProgressBar/regentimer.start()
 
 
 func apply_gravity(delta: float):
@@ -86,8 +82,3 @@ func shoot():
 	# Start cooldown timer
 	await get_tree().create_timer(shoot_cooldown).timeout
 	can_shoot = true  # Allow shooting again
-
-
-func _on_regentimer_timeout() -> void:
-	print("jeea")
-	texture_progress_bar.value += 1
