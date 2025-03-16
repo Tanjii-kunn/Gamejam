@@ -11,6 +11,7 @@ var is_shooting = false
 @export var move: bool = false
 @onready var bullet_scene = preload("uid://b10v1out16h0v")  # Load bullet scene
 
+
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):  # Default is "Esc" key
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:

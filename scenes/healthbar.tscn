@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://xn5pdvtdp7eu" path="res://assests/Pixel UI pack 3/under.png" id="1_ulkio"]
 [ext_resource type="Texture2D" uid="uid://beh4y2dxdrubw" path="res://assests/Pixel UI pack 3/over.png" id="2_y8nn8"]
 [ext_resource type="Texture2D" uid="uid://cp0sqdtyew42m" path="res://assests/Pixel UI pack 3/progress.png" id="3_25yk6"]
-[ext_resource type="Script" uid="uid://bnqkdn8dgsb5o" path="res://scripts/healthbar.gd" id="4_y8nn8"]
+[ext_resource type="Script" uid="uid://bqj85nnndy2to" path="res://scripts/healthbarr.gd" id="4_y8nn8"]
 
 [node name="healthbar" type="TextureProgressBar"]
 anchors_preset = 5
@@ -16,14 +16,15 @@ offset_bottom = 10.0
 grow_horizontal = 2
 scale = Vector2(6, 6)
 max_value = 10.0
-value = 10.0
 texture_under = ExtResource("1_ulkio")
 texture_over = ExtResource("2_y8nn8")
 texture_progress = ExtResource("3_25yk6")
 script = ExtResource("4_y8nn8")
 metadata/_edit_use_anchors_ = true
 
-[node name="regentimer" type="Timer" parent="."]
-wait_time = 0.3
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.332
+one_shot = true
+autostart = true
 
-[connection signal="timeout" from="regentimer" to="." method="_on_regentimer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

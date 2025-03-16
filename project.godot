@@ -31,7 +31,6 @@ Bridge="*res://addons/playgama_bridge/bridge.gd"
 
 [display]
 
-window/size/mode=4
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
@@ -75,6 +74,7 @@ mouse={
 
 [input_devices]
 
+sensors/enable_gravity=true
 pointing/emulate_touch_from_mouse=true
 
 [physics]
