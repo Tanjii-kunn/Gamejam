@@ -13,6 +13,7 @@ var is_shooting = false
 var reload: bool = true
 var ammo: float
 @export var max_ammo: float = 10
+@onready var healthbar = $CanvasLayer/healthbar
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):  # Default is "Esc" key
@@ -32,6 +33,9 @@ func _physics_process(delta: float) -> void:
 		handle_jump()
 		handle_movement()
 		handle_animation()
+
+	if healthbar.value == 0:
+		print("death")
 
 	if ammo == 0:
 		reload = false

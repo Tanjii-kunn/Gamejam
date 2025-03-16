@@ -20,6 +20,6 @@ texture_progress = ExtResource("3_25yk6")
 script = ExtResource("4_y8nn8")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
+wait_time = 0.6
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
