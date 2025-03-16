@@ -4,7 +4,9 @@ extends TextureProgressBar
 
 func _physics_process(delta: float) -> void:
 
-	if Input.is_action_just_pressed("mouse") and value > 0:
+	timer.wait_time = randf_range(0.8 , 2.1)
+
+	if  value > 0:
 		value -= 1
 		if timer.is_stopped():
 			timer.start()

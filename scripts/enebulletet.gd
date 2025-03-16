@@ -9,6 +9,6 @@ func _process(delta: float) -> void:
 	
 func _on_body_entered(body):
 	if body is player:
-		
+		body.dmg = true
 		self.queue_free()
 		
