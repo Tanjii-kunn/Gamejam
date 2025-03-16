@@ -10,7 +10,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_shooting = false
 @export var move: bool = false
 @onready var bullet_scene = preload("uid://b10v1out16h0v")  # Load bullet scene
-
+var reload: bool = true
+var ammo: float
+@export var max_ammo: float = 10
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):  # Default is "Esc" key
@@ -22,7 +24,7 @@ func _input(event):
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
+	ammo = max_ammo
 
 func _physics_process(delta: float) -> void:
 	if move == true:
@@ -31,6 +33,10 @@ func _physics_process(delta: float) -> void:
 		handle_movement()
 		handle_animation()
 
+	if ammo == 0:
+		reload = false
+	else:
+		reload = true
 
 func apply_gravity(delta: float):
 	if not is_on_floor():
@@ -53,24 +59,35 @@ func handle_animation():
 		return
 
 	if Input.is_action_just_pressed("shoot"):
-		is_shooting = true
-		anim.play("shoot")
-		shoot()
-		await anim.animation_finished
-		is_shooting = false
-		return
+		if reload:
+			is_shooting = true
+			anim.play("shoot")
+			shoot()
+			await anim.animation_finished
+			is_shooting = false
+			return
+		else:
+			is_shooting = true
+			anim.play("reload")
+			await anim.animation_finished
+			reload = true
+			ammo = max_ammo
+			is_shooting = false
+			return 
 
-	if velocity.x != 0:
-		anim.play("run")
-	else:
-		anim.play("idle")
+	if not is_shooting:
+		if velocity.x != 0:
+			anim.play("run")
+		else:
+			anim.play("idle")
 
 
 func shoot():
 	if not can_shoot:
 		return  # Prevent shooting if cooldown is active
-
 	can_shoot = false  # Disable shooting
+	if ammo > 0:
+		ammo -= 1
 	var bullet = bullet_scene.instantiate()
 	get_parent().add_child(bullet)
 
@@ -83,3 +100,4 @@ func shoot():
 	# Start cooldown timer
 	await get_tree().create_timer(shoot_cooldown).timeout
 	can_shoot = true  # Allow shooting again
+	print(ammo)

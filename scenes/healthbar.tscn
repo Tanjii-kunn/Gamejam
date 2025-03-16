@@ -6,21 +6,18 @@
 [ext_resource type="Script" uid="uid://bqj85nnndy2to" path="res://scripts/healthbarr.gd" id="4_y8nn8"]
 
 [node name="healthbar" type="TextureProgressBar"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -575.0
-offset_top = 1.0
-offset_right = -528.0
-offset_bottom = 10.0
-grow_horizontal = 2
+anchors_preset = -1
+anchor_right = 0.245
+anchor_bottom = 0.083
+offset_right = -235.24
+offset_bottom = -44.784
 scale = Vector2(6, 6)
 max_value = 10.0
+value = 10.0
 texture_under = ExtResource("1_ulkio")
 texture_over = ExtResource("2_y8nn8")
 texture_progress = ExtResource("3_25yk6")
 script = ExtResource("4_y8nn8")
-metadata/_edit_use_anchors_ = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.332
