@@ -13,8 +13,11 @@ var is_shooting = false
 var reload: bool = true
 var ammo: float
 @export var max_ammo: float = 10
-@onready var healthbar = $CanvasLayer/healthbar
-var dmg: bool = true
+var cchealth = 10
+@export var max_health = 10
+var dmg = randf_range(1 , 3)
+var regenhealth: float = randf_range(1, 3)
+
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):  # Default is "Esc" key
@@ -28,6 +31,8 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	ammo = max_ammo
 
+
+
 func _physics_process(delta: float) -> void:
 	if move == true:
 		apply_gravity(delta)
@@ -35,8 +40,19 @@ func _physics_process(delta: float) -> void:
 		handle_movement()
 		handle_animation()
 
-	if healthbar.value == 0:
-		print("death")
+	$CanvasLayer/regent.wait_time = randf_range(0.4 , 0.9)
+
+	$CanvasLayer/no.text = str(ammo) +"/"+ str(max_ammo)
+	
+
+
+	if cchealth <= 0:
+		get_tree().reload_current_scene()
+		
+
+	if cchealth < 10:
+		$CanvasLayer/regent.start()
+
 
 	if ammo == 0:
 		reload = false
@@ -106,3 +122,7 @@ func shoot():
 	await get_tree().create_timer(shoot_cooldown).timeout
 	can_shoot = true  # Allow shooting again
 	print(ammo)
+
+
+func _on_regent_timeout() -> void:
+	cchealth += regenhealth

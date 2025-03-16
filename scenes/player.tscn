@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://xylsypkle4u6"]
+[gd_scene load_steps=56 format=3 uid="uid://xylsypkle4u6"]
 
 [ext_resource type="Texture2D" uid="uid://rkfl8eif0evk" path="res://assests/CartoonDetective/Idle/Idle_01.png" id="1_dqkch"]
 [ext_resource type="Script" uid="uid://bsreugbfyymb1" path="res://scripts/player.gd" id="1_f1ej7"]
@@ -31,11 +31,15 @@
 [ext_resource type="Texture2D" uid="uid://djfe4iu24yjar" path="res://assests/CartoonDetective/Shoot/Shoot_04.png" id="18_a38lo"]
 [ext_resource type="Texture2D" uid="uid://dl0kfovxcgmnm" path="res://assests/CartoonDetective/Run/Run_08.png" id="18_wnwbv"]
 [ext_resource type="Texture2D" uid="uid://fwjbdl40vhyj" path="res://assests/CartoonDetective/Shoot/Shoot_05.png" id="19_4ni07"]
-[ext_resource type="PackedScene" uid="uid://6pns4ukgg38x" path="res://scenes/healthbar.tscn" id="19_4r5pv"]
 [ext_resource type="Texture2D" uid="uid://nc1d0sy0ldam" path="res://assests/CartoonDetective/Reload/Reload_14.png" id="19_u2ulf"]
 [ext_resource type="Texture2D" uid="uid://c3bi6nrchiaer" path="res://assests/CartoonDetective/Reload/Reload_15.png" id="20_6e8lb"]
 [ext_resource type="Texture2D" uid="uid://ue167v5sddga" path="res://assests/CartoonDetective/Reload/Reload_16.png" id="21_2gdjj"]
 [ext_resource type="Texture2D" uid="uid://bwifouoi0jqub" path="res://assests/CartoonDetective/Reload/Reload_17.png" id="22_sc3ue"]
+[ext_resource type="Texture2D" uid="uid://xn5pdvtdp7eu" path="res://assests/Pixel UI pack 3/under.png" id="36_t4otl"]
+[ext_resource type="Texture2D" uid="uid://beh4y2dxdrubw" path="res://assests/Pixel UI pack 3/over.png" id="37_j2b1d"]
+[ext_resource type="Texture2D" uid="uid://cp0sqdtyew42m" path="res://assests/Pixel UI pack 3/progress.png" id="38_cs1tg"]
+[ext_resource type="Script" uid="uid://bs5v3ssxvmexd" path="res://scripts/health.gd" id="39_j2b1d"]
+[ext_resource type="FontFile" uid="uid://b8b175vxmn673" path="res://assests/Super Peace.ttf" id="40_cs1tg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fulsm"]
 atlas = ExtResource("1_dqkch")
@@ -247,4 +251,34 @@ zoom = Vector2(2.5, 2.5)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="healthbar" parent="CanvasLayer" instance=ExtResource("19_4r5pv")]
+[node name="health" type="TextureProgressBar" parent="CanvasLayer"]
+offset_left = -1.0
+offset_right = 46.0
+offset_bottom = 9.0
+scale = Vector2(9, 9)
+max_value = 10.0
+value = 10.0
+texture_under = ExtResource("36_t4otl")
+texture_over = ExtResource("37_j2b1d")
+texture_progress = ExtResource("38_cs1tg")
+script = ExtResource("39_j2b1d")
+
+[node name="regent" type="Timer" parent="CanvasLayer"]
+
+[node name="ammo" type="Label" parent="CanvasLayer"]
+offset_top = 117.0
+offset_right = 123.0
+offset_bottom = 155.0
+theme_override_fonts/font = ExtResource("40_cs1tg")
+theme_override_font_sizes/font_size = 40
+text = "Ammo:"
+
+[node name="no" type="Label" parent="CanvasLayer"]
+offset_left = 124.0
+offset_top = 119.0
+offset_right = 347.0
+offset_bottom = 157.0
+theme_override_fonts/font = ExtResource("40_cs1tg")
+theme_override_font_sizes/font_size = 40
+
+[connection signal="timeout" from="CanvasLayer/regent" to="." method="_on_regent_timeout"]

@@ -138,8 +138,9 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qjcc1"]
-size = Vector2(22.5, 37)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ay86n"]
+radius = 7.5
+height = 40.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aehro"]
 radius = 89.2329
@@ -155,8 +156,8 @@ animation = &"run"
 frame_progress = 0.175514
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.19209e-07, -2.5)
-shape = SubResource("RectangleShape2D_qjcc1")
+position = Vector2(3.00927e-36, -5)
+shape = SubResource("CapsuleShape2D_ay86n")
 
 [node name="left" type="RayCast2D" parent="."]
 target_position = Vector2(-32.5, 0)

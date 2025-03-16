@@ -495,10 +495,8 @@ layer_0/tile_data = PackedInt32Array(1, 196609, 4, 2, 196609, 4, 3, 196609, 4, 4
 position = Vector2(40, -77)
 move = true
 
-[node name="healthbar" parent="player/player/CanvasLayer" index="0"]
-offset_left = 1.0
-offset_right = -234.24
-metadata/_edit_use_anchors_ = true
+[node name="health" parent="player/player/CanvasLayer" index="0" node_paths=PackedStringArray("Player")]
+Player = NodePath("../..")
 
 [node name="enimes" type="Node" parent="."]
 
