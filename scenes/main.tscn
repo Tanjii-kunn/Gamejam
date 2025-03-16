@@ -499,3 +499,5 @@ move = true
 position = Vector2(182, -6)
 
 [node name="obj" type="Node" parent="."]
+
+[editable path="player/player"]
