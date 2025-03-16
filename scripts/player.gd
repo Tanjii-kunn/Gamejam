@@ -14,6 +14,7 @@ var reload: bool = true
 var ammo: float
 @export var max_ammo: float = 10
 @onready var healthbar = $CanvasLayer/healthbar
+var dmg = 1
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):  # Default is "Esc" key
@@ -26,7 +27,7 @@ func _input(event):
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	ammo = max_ammo
-
+	
 func _physics_process(delta: float) -> void:
 	if move == true:
 		apply_gravity(delta)
