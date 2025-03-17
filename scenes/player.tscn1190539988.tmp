@@ -275,9 +275,9 @@ text = "Ammo:"
 
 [node name="no" type="Label" parent="CanvasLayer"]
 offset_left = 124.0
-offset_top = 118.0
+offset_top = 119.0
 offset_right = 347.0
-offset_bottom = 156.0
+offset_bottom = 157.0
 theme_override_fonts/font = ExtResource("40_cs1tg")
 theme_override_font_sizes/font_size = 40
 

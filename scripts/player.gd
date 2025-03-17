@@ -12,12 +12,13 @@ var is_shooting = false
 @onready var bullet_scene = preload("uid://b10v1out16h0v")  # Load bullet scene
 var reload: bool = true
 var ammo: float
-@export var max_ammo: float = 10
+@export var max_ammo: float = 20
+
 var cchealth = 10
 @export var max_health = 10
 var dmg = randf_range(1 , 3)
 var regenhealth: float = randf_range(1, 3)
-
+@onready var winfbull = preload("uid://coeffjy8p8twp")
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):  # Default is "Esc" key
@@ -29,7 +30,7 @@ func _input(event):
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	ammo = max_ammo
+	
 
 
 
@@ -92,7 +93,9 @@ func handle_animation():
 			anim.play("reload")
 			await anim.animation_finished
 			reload = true
-			ammo = max_ammo
+			ammo = 10
+			if not max_ammo == 0:
+				max_ammo -= ammo
 			is_shooting = false
 			return 
 
@@ -109,14 +112,25 @@ func shoot():
 	can_shoot = false  # Disable shooting
 	if ammo > 0:
 		ammo -= 1
+		
 	var bullet = bullet_scene.instantiate()
-	get_parent().add_child(bullet)
+	var windbullet = winfbull.instantiate()
+	if is_on_floor():
+		get_parent().add_child(bullet)
+	else:
+		get_parent().add_child(windbullet)
+	
 
 	# Position bullet in front of the player
-	bullet.position = global_position + Vector2(4 if not anim.flip_h else -4, -4)
-
+	if is_on_floor():
+		bullet.position = global_position + Vector2(4 if not anim.flip_h else -4, -4)
 	# Set bullet direction
-	bullet.direction = Vector2.LEFT if anim.flip_h else Vector2.RIGHT
+		bullet.direction = Vector2.LEFT if anim.flip_h else Vector2.RIGHT
+	else:
+		windbullet.position = global_position + Vector2(4 if not anim.flip_h else -4, -4)
+	# Set bullet direction
+		windbullet.direction = Vector2.LEFT if anim.flip_h else Vector2.RIGHT
+
 
 	# Start cooldown timer
 	await get_tree().create_timer(shoot_cooldown).timeout
