@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckcq0cj24ngxj"]
+
+[ext_resource type="Texture2D" uid="uid://cas2tjio68mow" path="res://assests/Pixel UI pack 3/UI/basket.png" id="1_2p1f5"]
+[ext_resource type="Script" uid="uid://cd0sxqtepjj2x" path="res://scripts/ammunation.gd" id="1_sh3et"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2p1f5"]
+radius = 8.0
+
+[node name="ammunation" type="Area2D"]
+script = ExtResource("1_sh3et")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2p1f5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_2p1f5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

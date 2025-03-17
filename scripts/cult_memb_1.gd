@@ -120,13 +120,8 @@ func _on_dire_timeout() -> void:
 
 func _on_wind_area_entered(area: Area2D) -> void:
 	if area is windbull:
-		# Push enemy in the opposite direction of its movement
-		if dir == -1 and not $rr.is_colliding():  # Moving left, push right
-			position.x += 20
-		elif dir == 1 and not $ll.is_colliding():  # Moving right, push left
-			position.x -= 20
-		elif dir == 0:
+		if not $ll.is_colliding() and not $ll.is_colliding():
 			if anim.flip_h == false:
-				position.x += 20
+				position.x += 25
 			else:
-				position.x -= 20
+				position.x -= 25

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://p35dlmado7sj"]
+[gd_scene load_steps=17 format=3 uid="uid://p35dlmado7sj"]
 
 [ext_resource type="Texture2D" uid="uid://dmmuda5cd0ipw" path="res://assests/Sidescroller Shooter - Central City/Sidescroller Shooter - Central City/Assets/Buildings.png" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://xylsypkle4u6" path="res://scenes/player.tscn" id="1_o5qli"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b0atsrm3x32o8" path="res://scenes/cult_memb_1.tscn" id="5_tbgi4"]
 [ext_resource type="Shader" uid="uid://5vrrji8spjrn" path="res://assests/Pixel UI pack 3/new_shader.gdshader" id="6_85g3d"]
 [ext_resource type="Texture2D" uid="uid://c11vu4v8h5i8j" path="res://assests/Pixel UI pack 3/fog.jpg" id="6_tipki"]
+[ext_resource type="PackedScene" uid="uid://ckcq0cj24ngxj" path="res://scenes/ammunation.tscn" id="8_choun"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o6xl0"]
 texture = ExtResource("1_jyhfs")
@@ -576,8 +577,8 @@ texture = ExtResource("5_o6xl0")
 
 [node name="fog" type="Sprite2D" parent="map/ParallaxBackground"]
 material = SubResource("ShaderMaterial_choun")
-position = Vector2(293580, 135.5)
-scale = Vector2(658.527, 1.11745)
+position = Vector2(181.006, 203.5)
+scale = Vector2(2.15435, 0.965324)
 texture = ExtResource("6_tipki")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="map"]
@@ -601,5 +602,8 @@ position = Vector2(183, -6)
 position = Vector2(274, -6)
 
 [node name="obj" type="Node" parent="."]
+
+[node name="ammunation" parent="obj" instance=ExtResource("8_choun")]
+position = Vector2(316, -7)
 
 [editable path="player/player"]
