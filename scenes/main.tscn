@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://p35dlmado7sj"]
+[gd_scene load_steps=12 format=3 uid="uid://p35dlmado7sj"]
 
 [ext_resource type="Texture2D" uid="uid://dmmuda5cd0ipw" path="res://assests/Sidescroller Shooter - Central City/Sidescroller Shooter - Central City/Assets/Buildings.png" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://xylsypkle4u6" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://bh4bbh5g0j4pc" path="res://assests/Sidescroller Shooter - Central City/Sidescroller Shooter - Central City/Assets/Tiles.png" id="2_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://chv048wrgfv0d" path="res://assests/Sidescroller Shooter - Central City/Sidescroller Shooter - Central City/Assets/Props-01.png" id="3_tefeu"]
+[ext_resource type="Texture2D" uid="uid://cphgscje8hcn3" path="res://assests/CartoonDetective/GameJam_tilemap_01.png" id="4_tefeu"]
 [ext_resource type="PackedScene" uid="uid://b0atsrm3x32o8" path="res://scenes/cult_memb_1.tscn" id="5_tbgi4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o6xl0"]
@@ -472,11 +473,79 @@ texture = ExtResource("3_tefeu")
 3:13/0 = 0
 4:13/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_choun"]
+texture = ExtResource("4_tefeu")
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+1:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+4:5/size_in_atlas = Vector2i(1, 2)
+4:5/0 = 0
+5:5/size_in_atlas = Vector2i(1, 2)
+5:5/0 = 0
+9:0/size_in_atlas = Vector2i(2, 3)
+9:0/0 = 0
+11:0/size_in_atlas = Vector2i(1, 3)
+11:0/0 = 0
+7:0/size_in_atlas = Vector2i(2, 3)
+7:0/0 = 0
+2:3/0 = 0
+1:3/0 = 0
+0:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_o5qli"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_o6xl0")
 sources/1 = SubResource("TileSetAtlasSource_tipki")
 sources/2 = SubResource("TileSetAtlasSource_85g3d")
+sources/3 = SubResource("TileSetAtlasSource_choun")
 
 [node name="main" type="Node2D"]
 position = Vector2(1, 0)
@@ -492,8 +561,9 @@ layer_0/tile_data = PackedInt32Array(1, 196609, 4, 2, 196609, 4, 3, 196609, 4, 4
 [node name="player" type="Node" parent="."]
 
 [node name="player" parent="player" instance=ExtResource("1_o5qli")]
-position = Vector2(40, -77)
+position = Vector2(34, -7)
 move = true
+metadata/_edit_group_ = true
 
 [node name="health" parent="player/player/CanvasLayer" index="0" node_paths=PackedStringArray("Player")]
 Player = NodePath("../..")
@@ -502,6 +572,9 @@ Player = NodePath("../..")
 
 [node name="cult_memb1" parent="enimes" instance=ExtResource("5_tbgi4")]
 position = Vector2(183, -6)
+
+[node name="cult_memb2" parent="enimes" instance=ExtResource("5_tbgi4")]
+position = Vector2(278, -10)
 
 [node name="obj" type="Node" parent="."]
 

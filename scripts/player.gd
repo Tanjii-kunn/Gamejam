@@ -121,7 +121,6 @@ func shoot():
 	# Start cooldown timer
 	await get_tree().create_timer(shoot_cooldown).timeout
 	can_shoot = true  # Allow shooting again
-	print(ammo)
 
 
 func _on_regent_timeout() -> void:

@@ -282,3 +282,4 @@ theme_override_fonts/font = ExtResource("40_cs1tg")
 theme_override_font_sizes/font_size = 40
 
 [connection signal="timeout" from="CanvasLayer/regent" to="." method="_on_regent_timeout"]
+[connection signal="timeout" from="CanvasLayer/regent" to="CanvasLayer/health" method="_on_regent_timeout"]

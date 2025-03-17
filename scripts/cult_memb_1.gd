@@ -63,16 +63,10 @@ func move():
 		anim.flip_h = false
 
 	if $left.is_colliding():
-		if dir == 1:
-			dir = -1
-		elif dir == -1:
-			dir = 1
+		dir = 1
 
 	if $right.is_colliding():
-		if dir == 1:
-			dir = -1
-		elif dir == -1:
-			dir = 1
+		dir = -1
 
 	velocity.x = dir * speed
 	move_and_slide()

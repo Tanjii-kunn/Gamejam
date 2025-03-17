@@ -156,24 +156,29 @@ animation = &"run"
 frame_progress = 0.175514
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(3.00927e-36, -5)
 shape = SubResource("CapsuleShape2D_ay86n")
 
 [node name="left" type="RayCast2D" parent="."]
-target_position = Vector2(-32.5, 0)
+visible = false
+target_position = Vector2(-22.5, 0)
 collide_with_areas = true
 
 [node name="right" type="RayCast2D" parent="."]
+visible = false
 exclude_parent = false
-target_position = Vector2(35, 0)
+target_position = Vector2(22.5, 0)
 
 [node name="d left" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(-10, 12.5)
 exclude_parent = false
 target_position = Vector2(0, 17.5)
 collide_with_areas = true
 
 [node name="d right" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(7.5, 12.5)
 exclude_parent = false
 target_position = Vector2(0, 17.5)
@@ -184,6 +189,7 @@ wait_time = 3.0
 autostart = true
 
 [node name="Area2D" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 visible = false
@@ -192,6 +198,12 @@ shape = SubResource("CircleShape2D_aehro")
 
 [node name="dire" type="Timer" parent="."]
 autostart = true
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = -20.0
+offset_top = 17.0
+offset_right = 20.0
+offset_bottom = 27.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
