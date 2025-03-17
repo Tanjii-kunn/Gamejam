@@ -120,8 +120,7 @@ func _on_dire_timeout() -> void:
 
 func _on_wind_area_entered(area: Area2D) -> void:
 	if area is windbull:
-		if not $ll.is_colliding() and not $rr.is_colliding():
-			if anim.flip_h == true:
-				position.x -= 20
-			else:
-				position.x += 20
+		if not $ll.is_colliding():
+			position.x -= 20
+		elif not $rr.is_colliding():
+			position.x += 20

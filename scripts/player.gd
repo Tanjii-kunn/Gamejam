@@ -46,6 +46,9 @@ func _physics_process(delta: float) -> void:
 	$CanvasLayer/no.text = str(ammo) +"/"+ str(max_ammo)
 	
 
+	if not is_on_floor():
+		if Input.is_action_just_pressed("shoot"):
+			pushshoot()
 
 	if cchealth <= 0:
 		if $end.is_stopped():
@@ -84,25 +87,26 @@ func handle_animation():
 	if is_shooting:
 		return
 
-	if Input.is_action_just_pressed("shoot"):
-		if reload:
-			is_shooting = true
-			anim.play("shoot")
-			shoot()
-			await anim.animation_finished
-			is_shooting = false
-			return
-		else:
-			is_shooting = true
-			anim.play("reload")
-			await anim.animation_finished
-			reload = true
-			if max_ammo >= 10:
-				ammo = 10
-			if not max_ammo == 0:
-				max_ammo -= ammo
-			is_shooting = false
-			return 
+	if is_on_floor():
+		if Input.is_action_just_pressed("shoot"):
+			if reload:
+				is_shooting = true
+				anim.play("shoot")
+				shoot()
+				await anim.animation_finished
+				is_shooting = false
+				return
+			else:
+				is_shooting = true
+				anim.play("reload")
+				await anim.animation_finished
+				reload = true
+				if max_ammo >= 10:
+					ammo = 10
+				if not max_ammo == 0:
+					max_ammo -= ammo
+				is_shooting = false
+				return 
 
 	if not is_shooting:
 		if velocity.x != 0:
@@ -126,11 +130,9 @@ func shoot():
 				position.x -= 10
 
 	var bullet = bullet_scene.instantiate()
-	var windbullet = winfbull.instantiate()
 	if is_on_floor():
 		get_parent().add_child(bullet)
-	else:
-		get_parent().add_child(windbullet)
+	
 	
 
 	# Position bullet in front of the player
@@ -138,16 +140,19 @@ func shoot():
 		bullet.position = global_position + Vector2(4 if not anim.flip_h else -4, -4)
 	# Set bullet direction
 		bullet.direction = Vector2.LEFT if anim.flip_h else Vector2.RIGHT
-	else:
-		windbullet.position = global_position + Vector2(4 if not anim.flip_h else -4, -4)
-	# Set bullet direction
-		windbullet.direction = Vector2.LEFT if anim.flip_h else Vector2.RIGHT
+
 
 
 	# Start cooldown timer
 	await get_tree().create_timer(shoot_cooldown).timeout
 	can_shoot = true  # Allow shooting again
 
+func pushshoot():
+	var windbullet = winfbull.instantiate()
+	get_parent().add_child(windbullet)
+	windbullet.position = global_position + Vector2(4 if not anim.flip_h else -4, -4)
+	# Set bullet direction
+	windbullet.direction = Vector2.LEFT if anim.flip_h else Vector2.RIGHT
 
 func _on_regent_timeout() -> void:
 	cchealth += regenhealth

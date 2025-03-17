@@ -12,3 +12,8 @@ func _process(delta: float) -> void:
 		$Sprite2D.flip_h = true
 	else:
 		$Sprite2D.flip_h = false
+
+
+func _on_body_entered(body):
+	if body is enemy:
+		self.queue_free()
