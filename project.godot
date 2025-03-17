@@ -28,11 +28,13 @@ config/features=PackedStringArray("4.4", "GL Compatibility")
 [autoload]
 
 Bridge="*res://addons/playgama_bridge/bridge.gd"
+Lvls="*res://lvls.gd"
 
 [display]
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+mouse_cursor/custom_image="uid://pifrtnmoqs5r"
 
 [editor_plugins]
 

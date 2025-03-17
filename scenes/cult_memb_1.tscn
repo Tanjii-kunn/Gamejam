@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b0atsrm3x32o8"]
+[gd_scene load_steps=28 format=3 uid="uid://b0atsrm3x32o8"]
 
 [ext_resource type="Script" uid="uid://diwriuq84srxm" path="res://scripts/cult_memb_1.gd" id="1_wmitl"]
 [ext_resource type="Texture2D" uid="uid://g27xy5htyh6a" path="res://assests/CartoonDetective/c.png" id="2_f8l0p"]
@@ -145,6 +145,10 @@ height = 40.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_aehro"]
 radius = 89.2329
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_02d3j"]
+radius = 7.5
+height = 40.0
+
 [node name="cult_memb1" type="CharacterBody2D"]
 scale = Vector2(0.4, 0.4)
 script = ExtResource("1_wmitl")
@@ -205,7 +209,20 @@ offset_top = 17.0
 offset_right = 20.0
 offset_bottom = 27.0
 
+[node name="ll" type="RayCast2D" parent="."]
+target_position = Vector2(-22.5, 0)
+
+[node name="rr" type="RayCast2D" parent="."]
+target_position = Vector2(22.5, 0)
+
+[node name="wind" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wind"]
+position = Vector2(0, -5)
+shape = SubResource("CapsuleShape2D_02d3j")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="dire" to="." method="_on_dire_timeout"]
+[connection signal="area_entered" from="wind" to="." method="_on_wind_area_entered"]

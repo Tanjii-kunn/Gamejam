@@ -12,6 +12,7 @@ var can_shoot: bool = true
 
 
 
+
 func _physics_process(_delta: float) -> void:
 	if detected == false:
 		move()
@@ -115,3 +116,12 @@ func _on_dire_timeout() -> void:
 		dir = -1
 	elif dir == -1:
 		dir = 1
+
+
+func _on_wind_area_entered(area: Area2D) -> void:
+	if area is windbull:
+		if not $ll.is_colliding() and not $rr.is_colliding():
+			if anim.flip_h == true:
+				position.x -= 20
+			else:
+				position.x += 20

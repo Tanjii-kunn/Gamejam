@@ -30,7 +30,7 @@ func _input(event):
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	
+	ammo = 10
 
 
 
@@ -48,14 +48,18 @@ func _physics_process(delta: float) -> void:
 
 
 	if cchealth <= 0:
-		get_tree().reload_current_scene()
-		
+		if $end.is_stopped():
+			$end.start()
 
 	if cchealth < 10:
 		$CanvasLayer/regent.start()
 
+	if max_ammo == 0 and ammo == 0:
+		can_shoot = false
+	else:
+		can_shoot = true
 
-	if ammo == 0:
+	if ammo == 0 :
 		reload = false
 	else:
 		reload = true
@@ -74,8 +78,8 @@ func handle_movement():
 		anim.flip_h = direction < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
 	move_and_slide()
+
 func handle_animation():
 	if is_shooting:
 		return
@@ -93,7 +97,8 @@ func handle_animation():
 			anim.play("reload")
 			await anim.animation_finished
 			reload = true
-			ammo = 10
+			if max_ammo >= 10:
+				ammo = 10
 			if not max_ammo == 0:
 				max_ammo -= ammo
 			is_shooting = false
@@ -112,7 +117,14 @@ func shoot():
 	can_shoot = false  # Disable shooting
 	if ammo > 0:
 		ammo -= 1
-		
+	
+	if is_on_floor():
+		if not $left.is_colliding() and not $right.is_colliding():
+			if anim.flip_h == true:
+				position.x += 10
+			else:
+				position.x -= 10
+
 	var bullet = bullet_scene.instantiate()
 	var windbullet = winfbull.instantiate()
 	if is_on_floor():
@@ -139,3 +151,6 @@ func shoot():
 
 func _on_regent_timeout() -> void:
 	cchealth += regenhealth
+
+func _on_end_timeout() -> void:
+	get_tree().change_scene_to_file("res://scenes/death.tscn")

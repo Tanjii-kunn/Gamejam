@@ -1,3 +1,4 @@
+class_name windbull
 extends Area2D
 
 @export var speed: float = 300.0  # Speed of the bullet
@@ -11,12 +12,3 @@ func _process(delta: float) -> void:
 		$Sprite2D.flip_h = true
 	else:
 		$Sprite2D.flip_h = false
-
-
-func _on_body_entered(body):
-	if body is enemy:
-		if body.position.x > 0:
-			body.position.x += 40
-		else:
-			body.position.x -= 40
-		self.queue_free()

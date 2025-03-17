@@ -561,7 +561,7 @@ layer_0/tile_data = PackedInt32Array(1, 196609, 4, 2, 196609, 4, 3, 196609, 4, 4
 [node name="player" type="Node" parent="."]
 
 [node name="player" parent="player" instance=ExtResource("1_o5qli")]
-position = Vector2(34, -7)
+position = Vector2(58, -7)
 move = true
 metadata/_edit_group_ = true
 
