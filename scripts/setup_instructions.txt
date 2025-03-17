@@ -1,0 +1,162 @@
+# Setup Guide
+
+## 1. Automatic Bullet Type Switching
+
+The game will now automatically switch bullet types based on the player's position:
+- When the player is on the ground, shooting will use metal bullets
+- When the player is in the air, shooting will use wind bullets
+- No need to manually switch or reload, the system will determine automatically
+
+## 2. Creating the Crosshair Scene
+
+1. Create a new scene:
+   - Click "Scene" > "New Scene"
+   - Select root node type as "Node2D"
+   - Rename the root node to "Crosshair"
+
+2. Attach script:
+   - Right-click on the "Crosshair" node
+   - Select "Attach Script"
+   - Choose the already created "crosshair.gd" script
+
+3. Set crosshair properties (optional):
+   - In the Inspector, you can adjust the following properties:
+     * crosshair_color: Crosshair color
+     * crosshair_size: Crosshair size
+     * crosshair_width: Crosshair line width
+     * crosshair_gap: Crosshair center gap
+
+4. Save the scene:
+   - Click "Scene" > "Save Scene"
+   - Save as "Crosshair.tscn", path should be "res://scenes/Crosshair.tscn"
+
+## 3. Setting Bullet Sprite Direction
+
+To ensure bullet textures rotate correctly, follow these steps:
+
+1. Open MetalBullet.tscn and WindBullet.tscn scenes
+2. Check the bullet scene structure:
+   - The root node should be Area2D (with metal_bullet.gd or wind_bullet.gd script attached)
+   - Child nodes should include Sprite2D and CollisionShape2D
+
+3. Ensure bullet texture is facing the correct direction:
+   - Select the Sprite2D node
+   - In the Inspector, make sure the texture's default direction is facing right (0 degrees)
+   - If the texture is not facing right, there are two solutions:
+     a. Modify the original image to face right
+     b. In the Sprite2D node's Inspector, adjust the "Rotation" property to make the texture face right
+
+4. Check rotation settings in bullet scripts:
+   - Open scripts/metal_bullet.gd and scripts/wind_bullet.gd
+   - Confirm that the _ready() function has the following code:
+   ```gdscript
+   # Rotate bullet based on direction
+   rotation = direction.angle()
+   ```
+   - This line of code will automatically rotate the entire Area2D node based on the bullet's firing direction
+
+5. If the bullet texture still doesn't rotate correctly, adjust the Sprite2D's additional rotation:
+   - Find the following code segment in the bullet script:
+   ```gdscript
+   for child in get_children():
+       if child is Sprite2D:
+           # If the bullet texture is not originally facing right, additional rotation may be needed
+           # Default assumes bullet texture is facing right, if not, uncomment the line below and adjust the angle
+           # child.rotation = 0  # Adjust this angle value if needed
+           pass
+   ```
+   - Uncomment the `child.rotation = 0` line
+   - Adjust the angle value as needed:
+     * 0 = no rotation
+     * PI/2 (about 1.57) = 90 degrees clockwise
+     * -PI/2 (about -1.57) = 90 degrees counterclockwise
+     * PI (about 3.14) = 180 degrees rotation
+
+6. Ensure the Area2D node's rotation mode is set correctly:
+   - Select the Area2D root node
+   - In the Inspector, find the "Transform" section
+   - Make sure "Rotation Mode" is set to "All" (so child nodes will also rotate)
+
+7. Test bullet rotation:
+   - Run the game
+   - Shoot in different directions
+   - Confirm that the bullet texture correctly faces the shooting direction
+
+## 4. Testing Mouse Aiming Functionality
+
+Your game should now have the following new features:
+
+1. Player can aim in any direction using the mouse
+2. Bullets will fire toward the mouse pointer
+3. Bullet textures will rotate correctly based on firing direction
+4. Player character will automatically face left or right based on mouse position
+5. When shooting on the ground, metal bullets are used; when in the air, wind bullets are used
+6. The hovering functionality when shooting wind bullets downward is still preserved
+7. The crosshair follows the mouse position, helping the player aim
+
+Make sure to test these features in the game, especially:
+- 360-degree shooting in all directions
+- Whether bullet textures correctly face the shooting direction
+- Whether the player character correctly faces the mouse direction
+- Whether bullet types correctly switch when shooting on the ground vs. in the air
+- The hovering effect when shooting wind bullets downward
+- Whether the crosshair correctly follows the mouse position
+
+## 5. Customizing the Crosshair (Optional)
+
+If you want to customize the appearance of the crosshair, you can:
+
+1. Open the Crosshair.tscn scene
+2. Adjust the following properties in the Inspector:
+   - crosshair_color: Crosshair color (e.g., red, green, blue, etc.)
+   - crosshair_size: Crosshair size (larger values make the crosshair bigger)
+   - crosshair_width: Crosshair line width (larger values make the lines thicker)
+   - crosshair_gap: Crosshair center gap (larger values make the center gap bigger)
+
+3. Alternatively, you can modify the _draw function in the crosshair.gd script to completely customize the crosshair appearance
+
+## 6. Common Issues and Solutions
+
+If bullet textures don't rotate correctly, possible causes and solutions:
+
+1. **Issue**: Bullet firing direction is correct, but texture direction is wrong
+   **Solution**: Adjust the `child.rotation` value in the script
+
+2. **Issue**: Bullet texture is correct in some directions but wrong in others
+   **Solution**: Check if the Area2D node's rotation is correct, you may need to add an offset after `rotation = direction.angle()`
+
+3. **Issue**: Bullet texture doesn't rotate at all
+   **Solution**: Make sure the Area2D node's rotation mode is set to "All" and rotation is not locked
+
+4. **Issue**: Script error "Expected indented block after if block"
+   **Solution**: Ensure that if statements have properly indented code blocks, not just comments
+
+5. **Issue**: Crosshair doesn't appear
+   **Solution**:
+   - Make sure the Crosshair.tscn scene is correctly saved in the res://scenes/ directory
+   - Check if the preload path in the player.gd script is correct
+   - Ensure the _draw function in the crosshair.gd script is correctly implemented
+
+6. **Issue**: "Parent node is busy setting up children, `add_child()` failed" error
+   **Solution**:
+   - In the player.gd's create_crosshair() function, use call_deferred() to delay adding the child node:
+   ```gdscript
+   get_tree().root.call_deferred("add_child", crosshair)
+   ```
+   - This ensures the child node is added after the scene tree completes its current operations
+   - This is the standard method for handling node addition timing issues in Godot
+
+7. **Issue**: Mouse position is fixed to the player, cannot move freely
+   **Solution**:
+   - Check the _input function in player.gd script, make sure mouse mode is not set to MOUSE_MODE_CAPTURED
+   - Ensure the following code is commented out or removed:
+   ```gdscript
+   # Don't use this code, it will cause the mouse to be captured
+   # elif event.is_action_pressed("mouse"):
+   #     Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+   ```
+   - In the _ready function, ensure mouse mode is set to MOUSE_MODE_VISIBLE:
+   ```gdscript
+   Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+   ```
+   - If you need to hide the mouse pointer in certain situations but still allow it to move, use MOUSE_MODE_HIDDEN instead of MOUSE_MODE_CAPTURED 

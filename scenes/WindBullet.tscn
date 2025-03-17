@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://coeffjy8p8twp"]
+
+[ext_resource type="Script" uid="uid://dy31kcx3neole" path="res://scripts/wind_bullet.gd" id="1_lqv4a"]
+[ext_resource type="Texture2D" uid="uid://dsqd30jsqmqnq" path="res://assests/All_Fire_Bullet_Pixel_16x16_01.png" id="2_3hpw4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3hpw4"]
+
+[node name="WindBullet" type="Area2D"]
+script = ExtResource("1_lqv4a")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_3hpw4")
+region_enabled = true
+region_rect = Rect2(575.31, 194.923, 38.317, 27.7987)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3hpw4")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

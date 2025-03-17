@@ -10,9 +10,43 @@ var can_shoot: bool = true
 @onready var bullet_scene = preload("uid://1vl4u67tl7qd") 
 @export var shoot_cooldown: float = 1.3
 
+# 添加推力相关变量
+var mass = 1.0  # 敌人质量
+var push_resistance = 0.7  # 推力抵抗系数
+var is_being_pushed = false
+var push_velocity = Vector2.ZERO
+var push_deceleration = 5.0  # 推力减速率
 
+# 获取敌人质量的方法
+func get_custom_mass():
+	return mass
 
-func _physics_process(_delta: float) -> void:
+# 应用推力的方法
+func apply_push(force):
+	is_being_pushed = true
+	push_velocity = force * (1.0 - push_resistance)
+	
+	# 创建一个计时器来恢复正常状态
+	await get_tree().create_timer(1.0).timeout
+	is_being_pushed = false
+
+# 添加受伤方法
+func take_damage(damage_amount):
+	# 这里可以添加生命值系统
+	# 如果敌人有生命值，可以在这里减少
+	# 如果没有，可以直接销毁敌人
+	queue_free()
+
+func _physics_process(delta: float) -> void:
+	# 如果正在被推动，应用推力
+	if is_being_pushed:
+		# 应用推力并逐渐减小
+		velocity = push_velocity
+		push_velocity = push_velocity.move_toward(Vector2.ZERO, push_deceleration * delta)
+		move_and_slide()
+		return
+		
+	# 原有的敌人行为逻辑
 	if detected == false:
 		move()
 		handleani()
@@ -25,6 +59,7 @@ func _physics_process(_delta: float) -> void:
 	else:
 		$Area2D.rotation = -180
 	$dire.wait_time = randf_range(4 , 9)
+
 func handleani():
 	if  dir == 0:
 		anim.play("idle")

@@ -1,0 +1,90 @@
+[gd_scene load_steps=4 format=3 uid="uid://bx44wd388e0nb"]
+
+[ext_resource type="Texture2D" uid="uid://ca33pgo0y0jf1" path="res://assests/basictile.jpg" id="2_ea4ly"]
+
+[sub_resource type="GDScript" id="GDScript_brkg0"]
+script/source = "extends RigidBody2D
+
+class_name pushable_object
+
+@export var mass_value: float = 1.0  # 物体质量
+@export var friction: float = 0.1  # 摩擦系数
+@export var deceleration_factor: float = 0.95  # 减速因子，值越小减速越快
+@export var min_velocity_threshold: float = 10.0  # 最小速度阈值，低于此值时停止
+
+var is_pushed: bool = false
+var push_timer: float = 0.0
+var max_push_time: float = 2.0  # 最大推动时间，超过此时间物体会停止
+
+func _ready():
+	# 设置初始物理状态
+	linear_velocity = Vector2.ZERO
+	angular_velocity = 0.0
+	
+	# 设置质量
+	mass = mass_value
+	
+	# 将物体添加到\"pushable\"组
+	add_to_group(\"pushable\")
+	
+	# 设置物理材质
+	var physics_material = PhysicsMaterial.new()
+	physics_material.friction = friction
+	physics_material_override = physics_material
+	
+	# 设置物理属性
+	lock_rotation = true  # 锁定旋转
+	can_sleep = true  # 允许物体在静止时进入睡眠状态
+	# 移除初始冻结，改为在停止时冻结
+	# freeze = true  # 初始时冻结物理模拟
+
+func _physics_process(delta):
+	if is_pushed:
+		# 计时器增加
+		push_timer += delta
+		
+		# 如果超过最大推动时间，停止物体
+		if push_timer >= max_push_time:
+			stop_movement()
+			return
+		
+		# 应用减速
+		linear_velocity *= deceleration_factor
+		angular_velocity *= deceleration_factor
+		
+		# 如果速度低于阈值，停止物体
+		if linear_velocity.length() < min_velocity_threshold:
+			stop_movement()
+
+func stop_movement():
+	linear_velocity = Vector2.ZERO
+	angular_velocity = 0.0
+	is_pushed = false
+	push_timer = 0.0
+	freeze = true  # 在停止时冻结物体
+
+func get_custom_mass():
+	return mass_value
+
+func apply_push(force):
+	freeze = false  # 解除冻结
+	linear_velocity = Vector2.ZERO  # 重置速度
+	angular_velocity = 0.0  # 重置角速度
+	apply_central_impulse(force)
+	is_pushed = true
+	push_timer = 0.0  # 重置计时器
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bjl8q"]
+size = Vector2(12, 12)
+
+[node name="PushableObject" type="RigidBody2D"]
+script = SubResource("GDScript_brkg0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bjl8q")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 0.0220949)
+scale = Vector2(-0.118602, 0.119631)
+texture = ExtResource("2_ea4ly")
