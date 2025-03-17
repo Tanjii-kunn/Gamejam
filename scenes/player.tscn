@@ -266,7 +266,7 @@ texture_over = ExtResource("37_j2b1d")
 texture_progress = ExtResource("38_cs1tg")
 script = ExtResource("39_j2b1d")
 
-[node name="regent" type="Timer" parent="CanvasLayer"]
+[node name="regent" type="Timer" parent="CanvasLayer/health"]
 
 [node name="ammo" type="Label" parent="CanvasLayer"]
 offset_top = 117.0
@@ -291,5 +291,5 @@ target_position = Vector2(20, 0)
 target_position = Vector2(-20, 0)
 
 [connection signal="timeout" from="end" to="." method="_on_end_timeout"]
-[connection signal="timeout" from="CanvasLayer/regent" to="." method="_on_regent_timeout"]
-[connection signal="timeout" from="CanvasLayer/regent" to="CanvasLayer/health" method="_on_regent_timeout"]
+[connection signal="timeout" from="CanvasLayer/health/regent" to="." method="_on_regent_timeout"]
+[connection signal="timeout" from="CanvasLayer/health/regent" to="CanvasLayer/health" method="_on_regent_timeout"]

@@ -19,6 +19,7 @@ var cchealth = 10
 var dmg = randf_range(1 , 3)
 var regenhealth: float = randf_range(1, 3)
 @onready var winfbull = preload("uid://coeffjy8p8twp")
+var reloded_ammo: float
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):  # Default is "Esc" key
@@ -32,8 +33,6 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	ammo = 10
 
-
-
 func _physics_process(delta: float) -> void:
 	if move == true:
 		apply_gravity(delta)
@@ -41,26 +40,29 @@ func _physics_process(delta: float) -> void:
 		handle_movement()
 		handle_animation()
 
-	$CanvasLayer/regent.wait_time = randf_range(0.4 , 0.9)
+	$CanvasLayer/health/regent.wait_time = randf_range(0.4 , 0.9)
 
 	$CanvasLayer/no.text = str(ammo) +"/"+ str(max_ammo)
 	
 
-	if not is_on_floor():
-		if Input.is_action_just_pressed("shoot"):
-			pushshoot()
+	if Input.is_action_just_pressed("reload"):
+		anim.play("reload")
+		is_shooting = true
+		await anim.animation_finished
+		if max_ammo > 0:
+			if ammo < 10:
+				reloded_ammo = 10 - ammo
+				ammo += reloded_ammo
+				max_ammo = max_ammo - reloded_ammo
+		is_shooting = false
+
 
 	if cchealth <= 0:
 		if $end.is_stopped():
 			$end.start()
 
 	if cchealth < 10:
-		$CanvasLayer/regent.start()
-
-	if max_ammo == 0 and ammo == 0:
-		can_shoot = false
-	else:
-		can_shoot = true
+		$CanvasLayer/health/regent.start()
 
 	if ammo == 0 :
 		reload = false
@@ -87,26 +89,34 @@ func handle_animation():
 	if is_shooting:
 		return
 
-	if is_on_floor():
-		if Input.is_action_just_pressed("shoot"):
-			if reload:
-				is_shooting = true
-				anim.play("shoot")
-				shoot()
-				await anim.animation_finished
-				is_shooting = false
-				return
-			else:
-				is_shooting = true
-				anim.play("reload")
-				await anim.animation_finished
-				reload = true
-				if max_ammo >= 10:
-					ammo = 10
-				if not max_ammo == 0:
-					max_ammo -= ammo
-				is_shooting = false
-				return 
+
+	if Input.is_action_just_pressed("shoot"):
+		if reload:
+			is_shooting = true
+			anim.play("shoot")
+			shoot()
+			await anim.animation_finished
+			is_shooting = false
+			return
+		else:
+			is_shooting = true
+			anim.play("reload")
+			await anim.animation_finished
+			if max_ammo > 0:
+				if ammo < 10:
+					reloded_ammo = 10 - ammo
+					ammo += reloded_ammo
+					max_ammo = max_ammo - reloded_ammo
+			reload = true
+			is_shooting = false
+			return 
+	elif Input.is_action_just_pressed("mouse"):
+		is_shooting = true
+		anim.play("shoot")
+		pushshoot()
+		await anim.animation_finished
+		is_shooting = false
+		return
 
 	if not is_shooting:
 		if velocity.x != 0:
@@ -119,31 +129,25 @@ func shoot():
 	if not can_shoot:
 		return  # Prevent shooting if cooldown is active
 	can_shoot = false  # Disable shooting
+
+	# Regular bullet logic
 	if ammo > 0:
 		ammo -= 1
 	
 	if is_on_floor():
 		if not $left.is_colliding() and not $right.is_colliding():
-			if anim.flip_h == true:
+			if anim.flip_h:
 				position.x += 10
 			else:
 				position.x -= 10
 
 	var bullet = bullet_scene.instantiate()
-	if is_on_floor():
-		get_parent().add_child(bullet)
-	
-	
-
-	# Position bullet in front of the player
-	if is_on_floor():
-		bullet.position = global_position + Vector2(4 if not anim.flip_h else -4, -4)
-	# Set bullet direction
-		bullet.direction = Vector2.LEFT if anim.flip_h else Vector2.RIGHT
+	get_parent().add_child(bullet)
+	bullet.position = global_position + Vector2(4 if not anim.flip_h else -4, -4)
+	bullet.direction = Vector2.LEFT if anim.flip_h else Vector2.RIGHT
 
 
-
-	# Start cooldown timer
+	# Cooldown before next shot
 	await get_tree().create_timer(shoot_cooldown).timeout
 	can_shoot = true  # Allow shooting again
 
@@ -151,8 +155,11 @@ func pushshoot():
 	var windbullet = winfbull.instantiate()
 	get_parent().add_child(windbullet)
 	windbullet.position = global_position + Vector2(4 if not anim.flip_h else -4, -4)
-	# Set bullet direction
 	windbullet.direction = Vector2.LEFT if anim.flip_h else Vector2.RIGHT
+
+	# Cooldown before next shot
+	await get_tree().create_timer(shoot_cooldown).timeout
+	can_shoot = true  # Allow shooting again
 
 func _on_regent_timeout() -> void:
 	cchealth += regenhealth
