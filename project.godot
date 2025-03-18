@@ -22,13 +22,22 @@ playgama_bridge/general/adsgram_block_id=""
 [application]
 
 config/name="conspiracy theory"
-run/main_scene="uid://p35dlmado7sj"
+run/main_scene="uid://dbdvr8bf4ebk4"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 
 [autoload]
 
 Bridge="*res://addons/playgama_bridge/bridge.gd"
 Lvls="*res://lvls.gd"
+DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+
+[dialogic]
+
+directories/dch_directory={
+"unit_test_character": "res://Tests/Resources/unit_test_character.dch"
+}
+directories/dtl_directory={}
 
 [display]
 
