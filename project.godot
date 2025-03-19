@@ -22,11 +22,6 @@ playgama_bridge/general/adsgram_block_id=""
 [application]
 
 config/name="conspiracy theory"
-<<<<<<< Updated upstream
-run/main_scene="uid://dbdvr8bf4ebk4"
-=======
-run/main_scene="uid://d1ar1kmumv3on"
->>>>>>> Stashed changes
 config/features=PackedStringArray("4.4", "GL Compatibility")
 <<<<<<<Updatedupstreamrun/main_scene="uid://dbdvr8bf4ebk4"
 
@@ -52,7 +47,7 @@ mouse_cursor/custom_image="uid://pifrtnmoqs5r"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/playgama_bridge/plugin.cfg")
+enabled=PackedStringArray("res://addons/playgama_bridge/plugin.cfg")
 
 [input]
 
@@ -68,7 +63,7 @@ right={
 }
 shoot={
 "deadzone": 0.2,
-"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(376, 3),"global_position":Vector2(385, 51),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(402, 6),"global_position":Vector2(411, 54),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
 jump={
