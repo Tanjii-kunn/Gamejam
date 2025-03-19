@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var shoot_cooldown: float = 0.3  # 0.3 seconds cooldown
 var can_shoot: bool = true
 const SPEED = 100
-const JUMP_VELOCITY = -210.0
+const JUMP_VELOCITY = -420.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_shooting = false
 @export var move: bool = false
