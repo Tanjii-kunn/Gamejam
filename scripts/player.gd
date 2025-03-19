@@ -4,8 +4,13 @@ extends CharacterBody2D
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @export var shoot_cooldown: float = 0.3  # 0.3 seconds cooldown
 var can_shoot: bool = true
+<<<<<<< HEAD
+const SPEED = 130
+var JUMP_VELOCITY = -250.0
+=======
 const SPEED = 100
 const JUMP_VELOCITY = -420.0
+>>>>>>> 04dc522643db3b883ea1754c022974fc0d23eff0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_shooting = false
 @export var move: bool = false
@@ -23,7 +28,7 @@ var regenhealth: float = randf_range(1, 3)
 var reloded_ammo: float
 @export var ddjump: bool = false
 var blastdmg: float = randf_range(4, 7)
-var can_push:bool = true
+var can_push:bool = false
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):  # Default is "Esc" key
@@ -33,9 +38,11 @@ func _input(event):
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Lock mouse
 
 
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	ammo = 10
+	$CanvasLayer.visible = true
 
 func _physics_process(delta: float) -> void:
 	if move == true:
@@ -43,6 +50,7 @@ func _physics_process(delta: float) -> void:
 		handle_jump()
 		handle_movement()
 		handle_animation()
+
 
 	$CanvasLayer/health/regent.wait_time = randf_range(0.4 , 0.9)
 
@@ -82,7 +90,7 @@ func handle_jump():
 			velocity.y = JUMP_VELOCITY
 	else:
 		if Input.is_action_just_pressed("jump"):
-			if ccjump <= 2:
+			if not ccjump == 1:
 				velocity.y = JUMP_VELOCITY 
 				ccjump += 1
 
@@ -124,13 +132,14 @@ func handle_animation():
 			is_shooting = false
 			return 
 	elif Input.is_action_just_pressed("mouse"):
-		if ammo > 4:
-			is_shooting = true
-			anim.play("shoot")
-			pushshoot()
-			await anim.animation_finished
-			is_shooting = false
-			return
+		if can_push == true:
+			if ammo > 4:
+				is_shooting = true
+				anim.play("shoot")
+				pushshoot()
+				await anim.animation_finished
+				is_shooting = false
+				return
 
 	if not is_shooting:
 		if velocity.x != 0:

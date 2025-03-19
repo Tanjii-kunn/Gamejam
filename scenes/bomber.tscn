@@ -244,15 +244,13 @@ exclude_parent = false
 target_position = Vector2(22.5, 0)
 
 [node name="d left" type="RayCast2D" parent="."]
-visible = false
-position = Vector2(-10, 12.5)
+position = Vector2(-15, 10)
 exclude_parent = false
 target_position = Vector2(0, 17.5)
 collide_with_areas = true
 
 [node name="d right" type="RayCast2D" parent="."]
-visible = false
-position = Vector2(7.5, 12.5)
+position = Vector2(17.5, 10)
 exclude_parent = false
 target_position = Vector2(0, 17.5)
 collide_with_areas = true
