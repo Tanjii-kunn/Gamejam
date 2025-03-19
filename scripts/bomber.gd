@@ -129,4 +129,6 @@ func healthdep():
 func _on_blastrd_body_entered(body: Node2D) -> void:
 	if body is player:
 		body.cchealth -= body.blastdmg
+	elif body is enemy:
+		body.cchealthh -= body.bldmg
 	queue_free()

@@ -2,6 +2,7 @@ class_name enemy
 extends CharacterBody2D
 
 var dir = 0
+var bldmg:float = randf_range(3, 6)
 @onready var anim = $AnimatedSprite2D
 var speed = 60
 @onready var timer: Timer = $Timer

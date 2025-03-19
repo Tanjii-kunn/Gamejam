@@ -1,6 +1,6 @@
 [gd_scene load_steps=41 format=3 uid="uid://davqmatotn7ij"]
 
-[ext_resource type="Script" path="res://scripts/bomber.gd" id="1_kfnh0"]
+[ext_resource type="Script" uid="uid://bhl8jmy71aaiy" path="res://scripts/bomber.gd" id="1_kfnh0"]
 [ext_resource type="Texture2D" uid="uid://fdypdb8nls26" path="res://assests/CartoonDetective/Aim/alah.png" id="2_imesv"]
 [ext_resource type="Texture2D" uid="uid://dq1t87gsygg7g" path="res://assests/CartoonDetective/Aim/hu.png" id="3_1635p"]
 [ext_resource type="Texture2D" uid="uid://n46t7bft5158" path="res://assests/CartoonDetective/Aim/akbar.png" id="4_h2syg"]
@@ -227,7 +227,7 @@ script = ExtResource("1_kfnh0")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2.5, -2.5)
 sprite_frames = SubResource("SpriteFrames_qjcc1")
-animation = &"idle"
+animation = &"die"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3.00927e-36, -5)
