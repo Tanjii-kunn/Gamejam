@@ -32,6 +32,10 @@ func _input(event):
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	ammo = 10
+	
+	# 确保玩家被添加到"player"组
+	if not is_in_group("player"):
+		add_to_group("player")
 
 func _physics_process(delta: float) -> void:
 	if move == true:
@@ -166,3 +170,23 @@ func _on_regent_timeout() -> void:
 
 func _on_end_timeout() -> void:
 	get_tree().change_scene_to_file("res://scenes/death.tscn")
+
+func take_damage(damage_amount: int) -> void:
+	# 扣除玩家生命值
+	cchealth -= damage_amount
+	
+	# 如果有受伤动画，可以在这里播放
+	# anim.play("hurt")
+	
+	# 如果有受伤音效，可以在这里播放
+	# $HurtSound.play()
+	
+	# 如果需要无敌时间，可以在这里添加
+	# set_deferred("$CollisionShape2D.disabled", true)
+	# await get_tree().create_timer(0.5).timeout
+	# set_deferred("$CollisionShape2D.disabled", false)
+	
+	# 检查是否死亡
+	if cchealth <= 0:
+		if $end.is_stopped():
+			$end.start()

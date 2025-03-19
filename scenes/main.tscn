@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dbdvr8bf4ebk4"]
+[gd_scene load_steps=19 format=3 uid="uid://dbdvr8bf4ebk4"]
 
 [ext_resource type="Texture2D" uid="uid://dmmuda5cd0ipw" path="res://assests/Sidescroller Shooter - Central City/Sidescroller Shooter - Central City/Assets/Buildings.png" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://xylsypkle4u6" path="res://scenes/player.tscn" id="1_o5qli"]
@@ -10,7 +10,8 @@
 [ext_resource type="Shader" uid="uid://5vrrji8spjrn" path="res://assests/Pixel UI pack 3/new_shader.gdshader" id="6_85g3d"]
 [ext_resource type="Texture2D" uid="uid://c11vu4v8h5i8j" path="res://assests/Pixel UI pack 3/fog.jpg" id="6_tipki"]
 [ext_resource type="PackedScene" uid="uid://ckcq0cj24ngxj" path="res://scenes/ammunation.tscn" id="8_choun"]
-[ext_resource type="PackedScene" path="res://scenes/start_convo.tscn" id="11_ya4ey"]
+[ext_resource type="PackedScene" uid="uid://b424yhwelbm85" path="res://scenes/enemies/KamikazeEnemy.tscn" id="10_eb6dy"]
+[ext_resource type="PackedScene" uid="uid://perors1dtaog" path="res://scenes/start_convo.tscn" id="11_ya4ey"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ya4ey"]
 texture = ExtResource("1_jyhfs")
@@ -614,6 +615,10 @@ position = Vector2(183, -6)
 
 [node name="cult_memb2" parent="enimes" instance=ExtResource("5_tbgi4")]
 position = Vector2(274, -6)
+
+[node name="KamikazeEnemy" parent="enimes" instance=ExtResource("10_eb6dy")]
+position = Vector2(226, -7)
+scale = Vector2(0.4, 0.4)
 
 [node name="obj" type="Node" parent="."]
 

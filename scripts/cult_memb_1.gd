@@ -9,6 +9,7 @@ var detected: bool = false
 var can_shoot: bool = true
 @onready var bullet_scene = preload("uid://1vl4u67tl7qd") 
 @export var shoot_cooldown: float = 1.3
+@export var health: int = 10  # 敌人生命值
 
 
 
@@ -125,3 +126,21 @@ func _on_wind_area_entered(area: Area2D) -> void:
 				position.x += 25
 			else:
 				position.x -= 25
+
+func take_damage(damage_amount: int) -> void:
+	# Reduce enemy health
+	health -= damage_amount
+	print("cult_memb_1 took ", damage_amount, " damage, remaining health: ", health)
+	
+	# Flash effect to indicate damage
+	anim.modulate = Color(2, 0.5, 0.5)
+	await get_tree().create_timer(0.1).timeout
+	anim.modulate = Color(1, 1, 1)
+	
+	# Check if dead
+	if health <= 0:
+		print("cult_memb_1 has been destroyed")
+		# If you want to add a death animation, you can add it here
+		# anim.play("death")
+		# await anim.animation_finished
+		queue_free()

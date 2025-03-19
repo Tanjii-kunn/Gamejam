@@ -1,0 +1,127 @@
+# Setup Guide
+
+## 7. Setting Up Kamikaze Enemy
+
+The kamikaze enemy is a suicide bomber type enemy that chases the player and explodes after a countdown.
+
+1. Create a new scene:
+   - Click "Scene" > "New Scene"
+   - Select root node type as "CharacterBody2D"
+   - Rename the root node to "KamikazeEnemy"
+   - Attach the script "res://scripts/enemies/kamikaze_enemy.gd" to it
+
+2. Add required child nodes:
+   - AnimatedSprite2D (for displaying animations)
+   - CollisionShape2D (for collision detection with environment)
+   - DetectionArea (Area2D for player detection)
+     * Add a CircleShape2D to its CollisionShape2D child
+   - ExplosionArea (Area2D for explosion damage area)
+     * Add a CircleShape2D to its CollisionShape2D child
+   - CountdownLabel (Label for displaying the countdown timer)
+   - AlertIndicator (Sprite2D for visual warning)
+   - ExplosionParticles (CPUParticles2D for explosion effect)
+
+3. Configure the AnimatedSprite2D:
+   - Create or import sprite frames with the following animations:
+     * "idle" - Normal state
+     * "chase" - Chasing the player
+     * "countdown" - Preparing to explode (blinking or flashing)
+     * "explode" - Explosion animation
+
+4. Configure the detection and explosion areas:
+   - For DetectionArea's CollisionShape2D, set the radius to match the detection_radius property (default 300)
+   - For ExplosionArea's CollisionShape2D, set the radius to match the explosion_radius property (default 100)
+   - Make sure both areas are set to "Monitoring" and "Monitorable"
+
+5. Configure the CountdownLabel:
+   - Position it above the enemy
+   - Set appropriate font and size for visibility
+   - Initially hidden (visible = false)
+
+6. Configure the AlertIndicator:
+   - Use an exclamation mark or warning symbol texture
+   - Position it above the enemy
+   - Initially hidden (visible = false)
+
+7. Configure the ExplosionParticles:
+   - Set appropriate properties for an explosion effect
+     * Emission Shape: Sphere
+     * Direction: Radial
+     * Spread: 180
+     * Colors: Orange to red gradient
+     * Lifetime: 0.5-1.0
+   - Set "Emitting" to false initially (will be triggered on explosion)
+
+8. Adjust properties in the Inspector:
+   - speed: Movement speed when chasing (default: 150)
+   - detection_radius: Distance at which it detects the player (default: 300)
+   - explosion_radius: Explosion damage area radius (default: 100)
+   - explosion_damage: Damage dealt to the player (default: 5)
+   - explosion_countdown: Time in seconds before explosion (default: 3)
+   - chase_acceleration: Acceleration when chasing player (default: 15)
+
+9. Save the scene:
+   - Click "Scene" > "Save Scene"
+   - Save as "KamikazeEnemy.tscn", path should be "res://scenes/enemies/KamikazeEnemy.tscn"
+
+10. Key Behavior Notes:
+    - The kamikaze enemy will chase the player immediately after detecting them
+    - When close enough to the player, it will start the explosion countdown
+    - During the countdown, the enemy will continue moving toward the player at reduced speed
+    - The explosion will damage all players and other enemies (including cult_memb_1) within the explosion radius
+    - Explosion damage decreases with distance from the center - closer targets take more damage
+    - The enemy will stop moving during the explosion state
+
+11. Test the enemy:
+    - Add the KamikazeEnemy to your test level
+    - Ensure it properly detects the player
+    - Verify that it starts countdown when close to player
+    - Check that it continues moving during countdown
+    - Verify that explosion deals damage to player and other entities
+
+This enemy adds tension to gameplay as players must decide whether to flee from the explosion or defeat the enemy before the countdown ends.
+
+## 8. Setting Up Enemy Spawn Points and Enemy Manager
+
+Enemy spawn points are locations where enemies appear in the game, and the enemy manager controls the spawning and quantity of enemies.
+
+1. Create enemy spawn points:
+   - In your level scene, add multiple Node2D nodes as enemy spawn points
+   - Rename these nodes to "EnemySpawner1", "EnemySpawner2", etc.
+   - Place them in different positions around the map, preferably away from the player's starting position
+   - Make sure all spawn points are added to the "enemy_spawner" group:
+     * Select the spawn point node
+     * In the Inspector panel, find the "Node" section
+     * Enter "enemy_spawner" in the "Groups" field and click "Add"
+
+2. Create an enemy manager:
+   - Add a new Node node to your main game scene
+   - Name this node "EnemyManager"
+   - Attach the script "res://scripts/enemy_manager.gd" to this node
+
+3. Configure the enemy manager properties:
+   - kamikaze_enemy_scene: Drag and drop "res://scenes/enemies/KamikazeEnemy.tscn" to this property
+   - spawn_delay: Set the base enemy spawn interval (default: 5.0 seconds)
+   - min_spawn_delay: Set the minimum spawn interval (default: 2.0 seconds)
+   - spawn_delay_reduction: Set the time reduction after each spawn (default: 0.1 seconds)
+   - max_enemies: Set the maximum number of enemies in the scene (default: 10)
+   - min_distance_from_player: Set the minimum distance between spawned enemies and the player (default: 300)
+
+4. Manually specify spawn points (optional):
+   - If you want to manually specify spawn points instead of using groups:
+     * Expand the "spawn_points" property of the EnemyManager node
+     * Set the array size to the number of spawn points you want
+     * Drag and drop each enemy spawn point node to its corresponding element slot
+
+5. Test enemy spawning:
+   - Run the game and ensure:
+     * Enemies appear at the specified spawn points
+     * Enemy spawn intervals gradually decrease
+     * The number of enemies in the scene does not exceed the maximum
+     * New enemies spawn when existing ones are defeated
+
+6. Adjust enemy spawning settings:
+   - Adjust spawn intervals and maximum enemy count based on desired difficulty
+   - Consider dynamically adjusting enemy properties based on game progress (modify the spawn_enemy function in enemy_manager.gd)
+
+The enemy management system increases the challenge of the game, and you can effectively adjust game difficulty by controlling the number and frequency of enemy spawns. 
