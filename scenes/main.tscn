@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://32atqdw3tqg"]
+[gd_scene load_steps=27 format=3 uid="uid://32atqdw3tqg"]
 
 [ext_resource type="Texture2D" uid="uid://dmmuda5cd0ipw" path="res://assests/Sidescroller Shooter - Central City/Sidescroller Shooter - Central City/Assets/Buildings.png" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://xylsypkle4u6" path="res://scenes/player.tscn" id="1_o5qli"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://b0atsrm3x32o8" path="res://scenes/cult_memb_1.tscn" id="11_ya4ey"]
 [ext_resource type="PackedScene" uid="uid://0p0bt54lmt46" path="res://scenes/aid.tscn" id="12_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://thmusd5s6eod" path="res://scenes/skeleton.tscn" id="14_jbj1t"]
+[ext_resource type="PackedScene" uid="uid://br5fwyw0krsgi" path="res://scenes/death_itself.tscn" id="15_muem4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_choun"]
 texture = ExtResource("1_jyhfs")
@@ -1293,6 +1294,9 @@ position = Vector2(-1557, 1438)
 
 [node name="skeleton5" parent="enimes" instance=ExtResource("14_jbj1t")]
 position = Vector2(-1562, 1768)
+
+[node name="deathItself" parent="enimes" instance=ExtResource("15_muem4")]
+position = Vector2(-684, 1596)
 
 [node name="obj" type="Node" parent="."]
 
