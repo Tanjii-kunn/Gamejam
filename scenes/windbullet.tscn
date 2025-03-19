@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://coeffjy8p8twp"]
+[gd_scene load_steps=4 format=3 uid="uid://bnn5258twbjgd"]
 
 [ext_resource type="Texture2D" uid="uid://dsqd30jsqmqnq" path="res://assests/All_Fire_Bullet_Pixel_16x16_01.png" id="1_1dun7"]
-[ext_resource type="Script" uid="uid://d2s6kj3bhoqnm" path="res://scripts/windbullet.gd" id="1_ruj7n"]
+[ext_resource type="Script" path="res://scripts/windbullet.gd" id="1_ruj7n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ruj7n"]
 radius = 29.1687

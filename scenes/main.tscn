@@ -1,15 +1,16 @@
-[gd_scene load_steps=17 format=3 uid="uid://32atqdw3tqg"]
+[gd_scene load_steps=18 format=3 uid="uid://32atqdw3tqg"]
 
 [ext_resource type="Texture2D" uid="uid://dmmuda5cd0ipw" path="res://assests/Sidescroller Shooter - Central City/Sidescroller Shooter - Central City/Assets/Buildings.png" id="1_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://xylsypkle4u6" path="res://scenes/player.tscn" id="1_o5qli"]
 [ext_resource type="Texture2D" uid="uid://bh4bbh5g0j4pc" path="res://assests/Sidescroller Shooter - Central City/Sidescroller Shooter - Central City/Assets/Tiles.png" id="2_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://chv048wrgfv0d" path="res://assests/Sidescroller Shooter - Central City/Sidescroller Shooter - Central City/Assets/Props-01.png" id="3_tefeu"]
 [ext_resource type="Texture2D" uid="uid://cphgscje8hcn3" path="res://assests/CartoonDetective/GameJam_tilemap_01.png" id="4_tefeu"]
-[ext_resource type="Texture2D" uid="uid://updbmmc2smxt" path="res://assests/CartoonDetective/GameJam_backgr_01.png" id="5_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://b0atsrm3x32o8" path="res://scenes/cult_memb_1.tscn" id="5_tbgi4"]
-[ext_resource type="Shader" uid="uid://5vrrji8spjrn" path="res://assests/Pixel UI pack 3/new_shader.gdshader" id="6_85g3d"]
+[ext_resource type="Texture2D" uid="uid://hb0ikpjgunii" path="res://assests/CartoonDetective/GameJam_backgr_01-1.png.png" id="5_ya4ey"]
+[ext_resource type="Shader" path="res://assests/Pixel UI pack 3/new_shader.gdshader" id="6_85g3d"]
 [ext_resource type="Texture2D" uid="uid://c11vu4v8h5i8j" path="res://assests/Pixel UI pack 3/fog.jpg" id="6_tipki"]
-[ext_resource type="PackedScene" uid="uid://ckcq0cj24ngxj" path="res://scenes/ammunation.tscn" id="8_choun"]
+[ext_resource type="PackedScene" uid="uid://cw2p47gtcec22" path="res://scenes/ammunation.tscn" id="8_choun"]
+[ext_resource type="PackedScene" uid="uid://davqmatotn7ij" path="res://scenes/bomber.tscn" id="9_ya4ey"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_choun"]
 texture = ExtResource("1_jyhfs")
@@ -570,14 +571,17 @@ layer_0/tile_data = PackedInt32Array(1, 196609, 4, 2, 196609, 4, 3, 196609, 4, 4
 [node name="ParallaxBackground" type="ParallaxBackground" parent="map"]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="map/ParallaxBackground"]
-motion_mirroring = Vector2(384, 0)
+motion_mirroring = Vector2(720, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="map/ParallaxBackground/ParallaxLayer"]
-texture = ExtResource("5_o6xl0")
+texture = ExtResource("5_ya4ey")
 
-[node name="fog" type="Sprite2D" parent="map/ParallaxBackground"]
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="map/ParallaxBackground"]
+motion_mirroring = Vector2(894, 0)
+
+[node name="fog" type="Sprite2D" parent="map/ParallaxBackground/ParallaxLayer2"]
 material = SubResource("ShaderMaterial_choun")
-position = Vector2(181.006, 203.5)
+position = Vector2(800, 241)
 scale = Vector2(2.15435, 0.965324)
 texture = ExtResource("6_tipki")
 
@@ -606,6 +610,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="enimes" type="Node" parent="."]
 
+[node name="bomber" parent="enimes" instance=ExtResource("9_ya4ey")]
+position = Vector2(157, -6)
+
 [node name="cult_memb1" parent="enimes" instance=ExtResource("5_tbgi4")]
 position = Vector2(183, -6)
 
@@ -615,6 +622,7 @@ position = Vector2(274, -6)
 [node name="obj" type="Node" parent="."]
 
 [node name="ammunation" parent="obj" instance=ExtResource("8_choun")]
-position = Vector2(316, -7)
+position = Vector2(136, -4)
+scale = Vector2(0.5, 0.5)
 
 [editable path="player/player"]

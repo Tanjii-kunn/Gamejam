@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckcq0cj24ngxj"]
+[gd_scene load_steps=4 format=3 uid="uid://cw2p47gtcec22"]
 
-[ext_resource type="Script" uid="uid://cd0sxqtepjj2x" path="res://scripts/ammunation.gd" id="1_sh3et"]
+[ext_resource type="Script" path="res://scripts/ammunation.gd" id="1_sh3et"]
 [ext_resource type="Texture2D" uid="uid://rvvpphygoqws" path="res://assests/CartoonDetective/Aim/Ammo_box.png" id="2_sh3et"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2p1f5"]
