@@ -8,10 +8,6 @@ func _process(delta: float) -> void:
 	position += direction * speed * delta  # Move the bullet
 	
 func _on_body_entered(body):
-	if body is enemy:
+	if body.is_in_group("enemy"):
 		body.healthdep()
 		self.queue_free()
-	elif body is benemy:
-		body.healthdep()
-		self.queue_free()
-	

@@ -54,6 +54,10 @@ mouse_cursor/custom_image="uid://pifrtnmoqs5r"
 
 enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg", "res://addons/playgama_bridge/plugin.cfg")
 
+[global_group]
+
+enemy=""
+
 [input]
 
 left={

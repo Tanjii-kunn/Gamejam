@@ -1,13 +1,13 @@
 [gd_scene load_steps=41 format=3 uid="uid://davqmatotn7ij"]
 
 [ext_resource type="Script" uid="uid://bhl8jmy71aaiy" path="res://scripts/bomber.gd" id="1_kfnh0"]
-[ext_resource type="Texture2D" uid="uid://fdypdb8nls26" path="res://assests/CartoonDetective/Aim/alah.png" id="2_imesv"]
-[ext_resource type="Texture2D" uid="uid://dq1t87gsygg7g" path="res://assests/CartoonDetective/Aim/hu.png" id="3_1635p"]
-[ext_resource type="Texture2D" uid="uid://n46t7bft5158" path="res://assests/CartoonDetective/Aim/akbar.png" id="4_h2syg"]
-[ext_resource type="Texture2D" uid="uid://de8vl4in4v0db" path="res://assests/CartoonDetective/Aim/ded.png" id="5_1635p"]
-[ext_resource type="Texture2D" uid="uid://b63aop7jjm6nd" path="res://assests/CartoonDetective/Aim/cultist_C4_idle.png" id="5_tw1wn"]
-[ext_resource type="Texture2D" uid="uid://bg3msj5iolkr4" path="res://assests/CartoonDetective/Aim/walk1.png" id="6_crrut"]
-[ext_resource type="Texture2D" uid="uid://cp568ypljrjbf" path="res://assests/CartoonDetective/Aim/walk2.png" id="7_jgum6"]
+[ext_resource type="Texture2D" uid="uid://fdypdb8nls26" path="res://assests/Pixel UI pack 3/CartoonDetective/Aim/alah.png" id="2_imesv"]
+[ext_resource type="Texture2D" uid="uid://dq1t87gsygg7g" path="res://assests/Pixel UI pack 3/CartoonDetective/Aim/hu.png" id="3_1635p"]
+[ext_resource type="Texture2D" uid="uid://n46t7bft5158" path="res://assests/Pixel UI pack 3/CartoonDetective/Aim/akbar.png" id="4_h2syg"]
+[ext_resource type="Texture2D" uid="uid://de8vl4in4v0db" path="res://assests/Pixel UI pack 3/CartoonDetective/Aim/ded.png" id="5_1635p"]
+[ext_resource type="Texture2D" uid="uid://b63aop7jjm6nd" path="res://assests/Pixel UI pack 3/CartoonDetective/Aim/cultist_C4_idle.png" id="5_tw1wn"]
+[ext_resource type="Texture2D" uid="uid://bg3msj5iolkr4" path="res://assests/Pixel UI pack 3/CartoonDetective/Aim/walk1.png" id="6_crrut"]
+[ext_resource type="Texture2D" uid="uid://cp568ypljrjbf" path="res://assests/Pixel UI pack 3/CartoonDetective/Aim/walk2.png" id="7_jgum6"]
 [ext_resource type="Texture2D" uid="uid://cpef2hgwue5pj" path="res://assests/Pixel UI pack 3/eneunder.png" id="8_imesv"]
 [ext_resource type="Texture2D" uid="uid://ccdxf5c0yfoyb" path="res://assests/Pixel UI pack 3/eneover.png" id="9_1635p"]
 [ext_resource type="Texture2D" uid="uid://dvb3j4pju6lrn" path="res://assests/Pixel UI pack 3/eneprog.png" id="10_h2syg"]
@@ -220,7 +220,7 @@ radius = 89.2329
 [sub_resource type="CircleShape2D" id="CircleShape2D_kb8u3"]
 radius = 95.1315
 
-[node name="bomber" type="CharacterBody2D"]
+[node name="bomber" type="CharacterBody2D" groups=["enemy"]]
 scale = Vector2(0.4, 0.4)
 script = ExtResource("1_kfnh0")
 

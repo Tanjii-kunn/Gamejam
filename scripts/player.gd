@@ -68,7 +68,7 @@ func _physics_process(delta: float) -> void:
 	if cchealth < 10:
 		$CanvasLayer/health/regent.start()
 
-	if ammo <= 0 :
+	if ammo <= 1 :
 		reload = false
 	else:
 		reload = true

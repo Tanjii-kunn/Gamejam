@@ -17,18 +17,21 @@ var dmg: float = randf_range(2 ,5)
 
 
 func _physics_process(_delta: float) -> void:
-	if detected == false:
-		move()
-		handleani()
-		timer.wait_time = randf_range(3 , 7)
-	else:
-		shoot()
-		
-	push()
+	if cchealthh > 1:
+		if detected == false:
+			move()
+			handleani()
+			timer.wait_time = randf_range(3 , 7)
+		else:
+			shoot()
+		push()
 	
 	healtn.value = cchealthh
 	
 	if cchealthh < 1:
+		dir = 0
+		anim.play("ded")
+		await anim.animation_finished
 		queue_free()
 
 	if $AnimatedSprite2D.flip_h == false:

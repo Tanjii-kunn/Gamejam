@@ -7,6 +7,7 @@
 radius = 7.0
 
 [node name="Aid" type="Area2D"]
+position = Vector2(0, 3)
 script = ExtResource("1_ft6p4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -1,15 +1,32 @@
-[gd_scene load_steps=30 format=3 uid="uid://b0atsrm3x32o8"]
+[gd_scene load_steps=35 format=3 uid="uid://b0atsrm3x32o8"]
 
 [ext_resource type="Script" uid="uid://diwriuq84srxm" path="res://scripts/cult_memb_1.gd" id="1_wmitl"]
-[ext_resource type="Texture2D" uid="uid://g27xy5htyh6a" path="res://assests/CartoonDetective/c.png" id="2_f8l0p"]
-[ext_resource type="Texture2D" uid="uid://envpj6j7wvt" path="res://assests/CartoonDetective/run1.png" id="3_ay86n"]
-[ext_resource type="Texture2D" uid="uid://cs7nj88fh4gnr" path="res://assests/CartoonDetective/run2.png" id="4_02d3j"]
-[ext_resource type="Texture2D" uid="uid://tbo2fj6t0mlp" path="res://assests/CartoonDetective/1shoot.png" id="4_t57gl"]
-[ext_resource type="Texture2D" uid="uid://pt0y6c55foxv" path="res://assests/CartoonDetective/2shoot.png" id="5_q82dy"]
-[ext_resource type="Texture2D" uid="uid://7s7vl3dlvk3p" path="res://assests/CartoonDetective/run3.png" id="5_y6k5x"]
+[ext_resource type="Texture2D" uid="uid://g27xy5htyh6a" path="res://assests/Pixel UI pack 3/CartoonDetective/c.png" id="2_f8l0p"]
+[ext_resource type="Texture2D" uid="uid://bvjn07e2v3gqc" path="res://assests/CartoonDetective/Aim/lmded.png" id="2_p1xp5"]
+[ext_resource type="Texture2D" uid="uid://envpj6j7wvt" path="res://assests/Pixel UI pack 3/CartoonDetective/run1.png" id="3_ay86n"]
+[ext_resource type="Texture2D" uid="uid://cs7nj88fh4gnr" path="res://assests/Pixel UI pack 3/CartoonDetective/run2.png" id="4_02d3j"]
+[ext_resource type="Texture2D" uid="uid://tbo2fj6t0mlp" path="res://assests/Pixel UI pack 3/CartoonDetective/1shoot.png" id="4_t57gl"]
+[ext_resource type="Texture2D" uid="uid://pt0y6c55foxv" path="res://assests/Pixel UI pack 3/CartoonDetective/2shoot.png" id="5_q82dy"]
+[ext_resource type="Texture2D" uid="uid://7s7vl3dlvk3p" path="res://assests/Pixel UI pack 3/CartoonDetective/run3.png" id="5_y6k5x"]
 [ext_resource type="Texture2D" uid="uid://dvb3j4pju6lrn" path="res://assests/Pixel UI pack 3/eneprog.png" id="8_02d3j"]
 [ext_resource type="Texture2D" uid="uid://cpef2hgwue5pj" path="res://assests/Pixel UI pack 3/eneunder.png" id="8_e3w0c"]
 [ext_resource type="Texture2D" uid="uid://ccdxf5c0yfoyb" path="res://assests/Pixel UI pack 3/eneover.png" id="8_y6k5x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ge4ge"]
+atlas = ExtResource("2_p1xp5")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jtew"]
+atlas = ExtResource("2_p1xp5")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2txkc"]
+atlas = ExtResource("2_p1xp5")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjj2m"]
+atlas = ExtResource("2_p1xp5")
+region = Rect2(64, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tgsvk"]
 atlas = ExtResource("2_f8l0p")
@@ -77,6 +94,23 @@ region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qjcc1"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ge4ge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jtew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2txkc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bjj2m")
+}],
+"loop": false,
+"name": &"ded",
+"speed": 7.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tgsvk")
@@ -148,15 +182,16 @@ height = 40.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_aehro"]
 radius = 89.2329
 
-[node name="cult_memb1" type="CharacterBody2D"]
+[node name="cult_memb1" type="CharacterBody2D" groups=["enemy"]]
 scale = Vector2(0.4, 0.4)
 script = ExtResource("1_wmitl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2.5, -5)
 sprite_frames = SubResource("SpriteFrames_qjcc1")
-animation = &"run"
-frame_progress = 0.175514
+animation = &"ded"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
