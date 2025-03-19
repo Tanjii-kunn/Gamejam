@@ -1131,9 +1131,6 @@ texture = ExtResource("11_jbj1t")
 position = Vector2(-1177, -269)
 metadata/_edit_group_ = true
 
-[node name="AnimatedSprite2D" parent="player/player" index="0"]
-autoplay = ""
-
 [node name="Camera2D" parent="player/player" index="3"]
 zoom = Vector2(4, 4)
 
