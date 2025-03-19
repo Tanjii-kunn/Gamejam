@@ -4,8 +4,13 @@ extends CharacterBody2D
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @export var shoot_cooldown: float = 0.3  # 0.3 seconds cooldown
 var can_shoot: bool = true
+<<<<<<< HEAD
 const SPEED = 130
 var JUMP_VELOCITY = -250.0
+=======
+const SPEED = 100
+const JUMP_VELOCITY = -420.0
+>>>>>>> 04dc522643db3b883ea1754c022974fc0d23eff0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_shooting = false
 @export var move: bool = false
