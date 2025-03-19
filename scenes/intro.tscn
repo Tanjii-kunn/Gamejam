@@ -1,3 +1,31 @@
-[gd_scene format=3 uid="uid://dji7vd5347rik"]
+[gd_scene load_steps=2 format=3 uid="uid://dji7vd5347rik"]
+
+[sub_resource type="GDScript" id="GDScript_sjfbp"]
+script/source = "extends Node2D
+
+
+
+func _ready() -> void:
+	await get_tree().create_timer(0.5).timeout
+	DialogueManager.show_dialogue_balloon(load(\"res://Dialoges/Introduction.dialogue\"))
+	await DialogueManager.dialogue_ended
+	await get_tree().create_timer(0.4).timeout
+	get_tree().change_scene_to_file(\"res://scenes/main.tscn\")
+
+func ani():
+	$CanvasLayer/AnimatedSprite2D.play()
+"
 
 [node name="Intro" type="Node2D"]
+script = SubResource("GDScript_sjfbp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.00248, 1)
+color = Color(0, 0, 0, 1)

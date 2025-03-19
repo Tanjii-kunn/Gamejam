@@ -19,16 +19,17 @@ var cchealth = 10
 @export var max_health = 10
 var dmg = randf_range(1 , 3)
 var regenhealth: float = randf_range(1, 3)
-@onready var winfbull = preload("uid://coeffjy8p8twp")
+@onready var winfbull = preload("res://scenes/windbullet.tscn")
 var reloded_ammo: float
 @export var ddjump: bool = false
 var blastdmg: float = randf_range(4, 7)
+var can_push:bool = true
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):  # Default is "Esc" key
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)  # Unlock mouse
-	elif event.is_action_pressed("mouse"):
+	elif event.is_action_pressed("lr"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Lock mouse
 
 
@@ -67,7 +68,7 @@ func _physics_process(delta: float) -> void:
 	if cchealth < 10:
 		$CanvasLayer/health/regent.start()
 
-	if ammo == 0 :
+	if ammo <= 0 :
 		reload = false
 	else:
 		reload = true
@@ -123,12 +124,13 @@ func handle_animation():
 			is_shooting = false
 			return 
 	elif Input.is_action_just_pressed("mouse"):
-		is_shooting = true
-		anim.play("shoot")
-		pushshoot()
-		await anim.animation_finished
-		is_shooting = false
-		return
+		if ammo > 4:
+			is_shooting = true
+			anim.play("shoot")
+			pushshoot()
+			await anim.animation_finished
+			is_shooting = false
+			return
 
 	if not is_shooting:
 		if velocity.x != 0:
@@ -146,7 +148,6 @@ func shoot():
 	if ammo > 0:
 		ammo -= 1
 	
-	if is_on_floor():
 		if not $left.is_colliding() and not $right.is_colliding():
 			if anim.flip_h:
 				position.x += 10
@@ -164,6 +165,14 @@ func shoot():
 	can_shoot = true  # Allow shooting again
 
 func pushshoot():
+	if can_push == false:
+		return
+	
+	if ammo > 4:
+		ammo -= 4
+		
+	
+	can_push = false
 	var windbullet = winfbull.instantiate()
 	get_parent().add_child(windbullet)
 	windbullet.position = global_position + Vector2(4 if not anim.flip_h else -4, -4)
@@ -171,7 +180,7 @@ func pushshoot():
 
 	# Cooldown before next shot
 	await get_tree().create_timer(shoot_cooldown).timeout
-	can_shoot = true  # Allow shooting again
+	can_push = true  # Allow shooting again
 
 func _on_regent_timeout() -> void:
 	cchealth += regenhealth

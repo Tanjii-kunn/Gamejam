@@ -1,4 +1,11 @@
 ~ Intro
-Narrator: Hello, Investigator
+Narrator: Hello, Ray
 Narrator: You Are The Best Investigator
-Narrator: You Are Charged With The duty of investigating the "Cult of Satan"
+Narrator: You Are Charged With The duty of investigating the [wait=0.3] [shake rate=20 level=5]"Cult of Satan"[/shake]
+Narrator: From Here Now,You'r On Your Own Ray.
+% Narrator: Good Luck! 
+% Narrator : Hope you Make It Alive
+% Narrator : See you After This... Hope SO..
+
+
+=> END
