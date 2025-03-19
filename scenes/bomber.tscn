@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=36 format=3 uid="uid://bl7n0dajp35m1"]
 
 [ext_resource type="Script" uid="uid://mb5wdnkmbbb7" path="res://scenes/bomber.gd" id="1_imesv"]
@@ -93,12 +94,127 @@ region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_02luw"]
 atlas = ExtResource("7_1635p")
+=======
+[gd_scene load_steps=41 format=3 uid="uid://bl7n0dajp35m1"]
+
+[ext_resource type="Script" uid="uid://bhl8jmy71aaiy" path="res://scripts/bomber.gd" id="1_kfnh0"]
+[ext_resource type="Texture2D" uid="uid://fdypdb8nls26" path="res://assests/CartoonDetective/Aim/alah.png" id="2_imesv"]
+[ext_resource type="Texture2D" uid="uid://dq1t87gsygg7g" path="res://assests/CartoonDetective/Aim/hu.png" id="3_1635p"]
+[ext_resource type="Texture2D" uid="uid://n46t7bft5158" path="res://assests/CartoonDetective/Aim/akbar.png" id="4_h2syg"]
+[ext_resource type="Texture2D" uid="uid://de8vl4in4v0db" path="res://assests/CartoonDetective/Aim/ded.png" id="5_1635p"]
+[ext_resource type="Texture2D" uid="uid://b63aop7jjm6nd" path="res://assests/CartoonDetective/Aim/cultist_C4_idle.png" id="5_tw1wn"]
+[ext_resource type="Texture2D" uid="uid://bg3msj5iolkr4" path="res://assests/CartoonDetective/Aim/walk1.png" id="6_crrut"]
+[ext_resource type="Texture2D" uid="uid://cp568ypljrjbf" path="res://assests/CartoonDetective/Aim/walk2.png" id="7_jgum6"]
+[ext_resource type="Texture2D" uid="uid://cpef2hgwue5pj" path="res://assests/Pixel UI pack 3/eneunder.png" id="8_imesv"]
+[ext_resource type="Texture2D" uid="uid://ccdxf5c0yfoyb" path="res://assests/Pixel UI pack 3/eneover.png" id="9_1635p"]
+[ext_resource type="Texture2D" uid="uid://dvb3j4pju6lrn" path="res://assests/Pixel UI pack 3/eneprog.png" id="10_h2syg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kb8u3"]
+atlas = ExtResource("2_imesv")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_buhgs"]
+atlas = ExtResource("2_imesv")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7sxdq"]
+atlas = ExtResource("2_imesv")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wrov"]
+atlas = ExtResource("2_imesv")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sonad"]
+atlas = ExtResource("3_1635p")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a12w2"]
+atlas = ExtResource("3_1635p")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gukpb"]
+atlas = ExtResource("3_1635p")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p46wf"]
+atlas = ExtResource("3_1635p")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kr38e"]
+atlas = ExtResource("4_h2syg")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u272p"]
+atlas = ExtResource("4_h2syg")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2syg"]
+atlas = ExtResource("5_1635p")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tw1wn"]
+atlas = ExtResource("5_1635p")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crrut"]
+atlas = ExtResource("5_1635p")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgum6"]
+atlas = ExtResource("5_1635p")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3g42t"]
+atlas = ExtResource("5_tw1wn")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64kgp"]
+atlas = ExtResource("5_tw1wn")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kg40r"]
+atlas = ExtResource("5_tw1wn")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rsrk"]
+atlas = ExtResource("5_tw1wn")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5b8f7"]
+atlas = ExtResource("6_crrut")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rq40i"]
+atlas = ExtResource("6_crrut")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02luw"]
+atlas = ExtResource("6_crrut")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wkn5"]
+atlas = ExtResource("6_crrut")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqb74"]
+atlas = ExtResource("7_jgum6")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ihmw"]
+atlas = ExtResource("7_jgum6")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shbix"]
+atlas = ExtResource("7_jgum6")
+>>>>>>> Stashed changes
 region = Rect2(0, 64, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qjcc1"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+<<<<<<< Updated upstream
 "texture": SubResource("AtlasTexture_h2syg")
 }, {
 "duration": 1.0,
@@ -111,6 +227,8 @@ animations = [{
 "texture": SubResource("AtlasTexture_jgum6")
 }, {
 "duration": 1.0,
+=======
+>>>>>>> Stashed changes
 "texture": SubResource("AtlasTexture_kb8u3")
 }, {
 "duration": 1.0,
@@ -127,12 +245,16 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_a12w2")
+<<<<<<< Updated upstream
 }],
 "loop": true,
 "name": &"blast",
 "speed": 7.0
 }, {
 "frames": [{
+=======
+}, {
+>>>>>>> Stashed changes
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gukpb")
 }, {
@@ -146,11 +268,35 @@ animations = [{
 "texture": SubResource("AtlasTexture_u272p")
 }],
 "loop": true,
+<<<<<<< Updated upstream
 "name": &"idle",
+=======
+"name": &"blast",
+>>>>>>> Stashed changes
 "speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
+<<<<<<< Updated upstream
+=======
+"texture": SubResource("AtlasTexture_h2syg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tw1wn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_crrut")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgum6")
+}],
+"loop": false,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+>>>>>>> Stashed changes
 "texture": SubResource("AtlasTexture_3g42t")
 }, {
 "duration": 1.0,
@@ -161,7 +307,16 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5rsrk")
+<<<<<<< Updated upstream
 }, {
+=======
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}, {
+"frames": [{
+>>>>>>> Stashed changes
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5b8f7")
 }, {
@@ -170,6 +325,21 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_02luw")
+<<<<<<< Updated upstream
+=======
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wkn5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqb74")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ihmw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shbix")
+>>>>>>> Stashed changes
 }],
 "loop": true,
 "name": &"run",
@@ -181,6 +351,7 @@ radius = 7.5
 height = 40.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aehro"]
+<<<<<<< Updated upstream
 radius = 50.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kfnh0"]
@@ -189,15 +360,32 @@ radius = 83.1038
 [node name="Bomber" type="CharacterBody2D"]
 scale = Vector2(0.4, 0.4)
 script = ExtResource("1_imesv")
+=======
+radius = 89.2329
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kb8u3"]
+radius = 95.1315
+
+[node name="bomber" type="CharacterBody2D"]
+scale = Vector2(0.4, 0.4)
+script = ExtResource("1_kfnh0")
+>>>>>>> Stashed changes
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2.5, -2.5)
 sprite_frames = SubResource("SpriteFrames_qjcc1")
+<<<<<<< Updated upstream
 animation = &"blast"
 frame_progress = 0.701885
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.5, -5)
+=======
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3.00927e-36, -5)
+>>>>>>> Stashed changes
 shape = SubResource("CapsuleShape2D_ay86n")
 
 [node name="left" type="RayCast2D" parent="."]
@@ -229,9 +417,17 @@ wait_time = 3.0
 autostart = true
 
 [node name="Area2D" type="Area2D" parent="."]
+<<<<<<< Updated upstream
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(45, -5)
+=======
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(90, 5)
+>>>>>>> Stashed changes
 shape = SubResource("CircleShape2D_aehro")
 
 [node name="dire" type="Timer" parent="."]
@@ -255,6 +451,7 @@ position = Vector2(-2.5, -10)
 target_position = Vector2(-20, 1.43051e-06)
 collision_mask = 2
 
+<<<<<<< Updated upstream
 [node name="blastrad" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="blastrad"]
@@ -267,6 +464,12 @@ disabled = true
 offset_left = -15.0
 offset_top = -35.0
 offset_right = 0.999999
+=======
+[node name="healtn" type="TextureProgressBar" parent="."]
+offset_left = -17.5
+offset_top = -35.0
+offset_right = -1.5
+>>>>>>> Stashed changes
 offset_bottom = -28.0
 scale = Vector2(2.34978, 1.0755)
 max_value = 10.0
@@ -275,8 +478,21 @@ texture_under = ExtResource("8_imesv")
 texture_over = ExtResource("9_1635p")
 texture_progress = ExtResource("10_h2syg")
 
+<<<<<<< Updated upstream
+=======
+[node name="blastrd" type="Area2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="blastrd"]
+shape = SubResource("CircleShape2D_kb8u3")
+
+>>>>>>> Stashed changes
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="dire" to="." method="_on_dire_timeout"]
+<<<<<<< Updated upstream
 [connection signal="body_entered" from="blastrad" to="." method="_on_blastrad_body_entered"]
+=======
+[connection signal="body_entered" from="blastrd" to="." method="_on_blastrd_body_entered"]
+>>>>>>> Stashed changes

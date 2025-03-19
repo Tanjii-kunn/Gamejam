@@ -9,7 +9,9 @@ var detected: bool = false
 var can_shoot: bool = true
 @onready var bullet_scene = preload("uid://1vl4u67tl7qd") 
 @export var shoot_cooldown: float = 1.3
-
+@onready var healtn: TextureProgressBar = $healtn
+var cchealthh:float = 10
+var dmg: float = randf_range(2 ,5)
 
 
 
@@ -20,6 +22,13 @@ func _physics_process(_delta: float) -> void:
 		timer.wait_time = randf_range(3 , 7)
 	else:
 		shoot()
+		
+	push()
+	
+	healtn.value = cchealthh
+	
+	if cchealthh < 1:
+		queue_free()
 
 	if $AnimatedSprite2D.flip_h == false:
 		$Area2D.rotation = 0
@@ -72,6 +81,10 @@ func move():
 	velocity.x = dir * speed
 	move_and_slide()
 
+func healthdep():
+	if healtn.value > 0:
+		cchealthh -= dmg
+
 func ondetec():
 	dir = 0
 	anim.play("shoot")
@@ -117,11 +130,9 @@ func _on_dire_timeout() -> void:
 	elif dir == -1:
 		dir = 1
 
-
-func _on_wind_area_entered(area: Area2D) -> void:
-	if area is windbull:
-		if not $ll.is_colliding() and not $ll.is_colliding():
-			if anim.flip_h == false:
-				position.x += 25
-			else:
-				position.x -= 25
+func push():
+	if not $ll.is_colliding() and not $rr.is_colliding():
+		if $"1".is_colliding():
+			position.x += 20
+		elif $"2".is_colliding():
+			position.x -= 20

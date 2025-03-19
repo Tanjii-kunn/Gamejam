@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://b0atsrm3x32o8"]
+[gd_scene load_steps=30 format=3 uid="uid://b0atsrm3x32o8"]
 
 [ext_resource type="Script" uid="uid://diwriuq84srxm" path="res://scripts/cult_memb_1.gd" id="1_wmitl"]
 [ext_resource type="Texture2D" uid="uid://g27xy5htyh6a" path="res://assests/CartoonDetective/c.png" id="2_f8l0p"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://tbo2fj6t0mlp" path="res://assests/CartoonDetective/1shoot.png" id="4_t57gl"]
 [ext_resource type="Texture2D" uid="uid://pt0y6c55foxv" path="res://assests/CartoonDetective/2shoot.png" id="5_q82dy"]
 [ext_resource type="Texture2D" uid="uid://7s7vl3dlvk3p" path="res://assests/CartoonDetective/run3.png" id="5_y6k5x"]
+[ext_resource type="Texture2D" uid="uid://dvb3j4pju6lrn" path="res://assests/Pixel UI pack 3/eneprog.png" id="8_02d3j"]
+[ext_resource type="Texture2D" uid="uid://cpef2hgwue5pj" path="res://assests/Pixel UI pack 3/eneunder.png" id="8_e3w0c"]
+[ext_resource type="Texture2D" uid="uid://ccdxf5c0yfoyb" path="res://assests/Pixel UI pack 3/eneover.png" id="8_y6k5x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tgsvk"]
 atlas = ExtResource("2_f8l0p")
@@ -145,16 +148,12 @@ height = 40.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_aehro"]
 radius = 89.2329
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_02d3j"]
-radius = 7.5
-height = 40.0
-
 [node name="cult_memb1" type="CharacterBody2D"]
 scale = Vector2(0.4, 0.4)
 script = ExtResource("1_wmitl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-0.005, -3.345)
+position = Vector2(2.5, -5)
 sprite_frames = SubResource("SpriteFrames_qjcc1")
 animation = &"run"
 frame_progress = 0.175514
@@ -203,27 +202,37 @@ shape = SubResource("CircleShape2D_aehro")
 [node name="dire" type="Timer" parent="."]
 autostart = true
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
-offset_left = -20.0
-offset_top = 17.0
-offset_right = 20.0
-offset_bottom = 27.0
-metadata/_edit_use_anchors_ = true
-
 [node name="ll" type="RayCast2D" parent="."]
 target_position = Vector2(-22.5, 0)
 
 [node name="rr" type="RayCast2D" parent="."]
 target_position = Vector2(22.5, 0)
 
-[node name="wind" type="Area2D" parent="."]
+[node name="1" type="RayCast2D" parent="."]
+position = Vector2(0, -10)
+target_position = Vector2(20, -4.76837e-07)
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="wind"]
-position = Vector2(0, -5)
-shape = SubResource("CapsuleShape2D_02d3j")
+[node name="2" type="RayCast2D" parent="."]
+position = Vector2(-2.5, -10)
+target_position = Vector2(-20, 1.43051e-06)
+collision_mask = 2
+
+[node name="healtn" type="TextureProgressBar" parent="."]
+offset_left = -17.5
+offset_top = -35.0
+offset_right = -1.5
+offset_bottom = -28.0
+scale = Vector2(2.34978, 1.0755)
+max_value = 10.0
+value = 10.0
+texture_under = ExtResource("8_e3w0c")
+texture_over = ExtResource("8_y6k5x")
+texture_progress = ExtResource("8_02d3j")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="dire" to="." method="_on_dire_timeout"]
-[connection signal="area_entered" from="wind" to="." method="_on_wind_area_entered"]

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b1pklegn5xxpi"
+path="res://.godot/imported/Retro Interferences 02.wav-8f07773c6dc0c4f90ea0bdea2c68e7cb.sample"
+
+[deps]
+
+source_file="res://assests/FreeSFX/GameSFX/Interferences/Retro Interferences 02.wav"
+dest_files=["res://.godot/imported/Retro Interferences 02.wav-8f07773c6dc0c4f90ea0bdea2c68e7cb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

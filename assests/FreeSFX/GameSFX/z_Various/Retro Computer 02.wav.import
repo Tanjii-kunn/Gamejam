@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c6t1l2sn0bmv2"
+path="res://.godot/imported/Retro Computer 02.wav-50748d35b601c9a4587df4b9b8918afe.sample"
+
+[deps]
+
+source_file="res://assests/FreeSFX/GameSFX/z_Various/Retro Computer 02.wav"
+dest_files=["res://.godot/imported/Retro Computer 02.wav-50748d35b601c9a4587df4b9b8918afe.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

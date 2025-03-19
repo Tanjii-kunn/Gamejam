@@ -192,6 +192,7 @@ height = 40.0
 [node name="player" type="CharacterBody2D"]
 scale = Vector2(0.4, 0.4)
 script = ExtResource("1_f1ej7")
+move = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2.5, 2.5)
@@ -215,14 +216,14 @@ shape = SubResource("CapsuleShape2D_f1ej7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(1.90735e-06, -9.53674e-07)
-zoom = Vector2(2.5, 2.5)
+zoom = Vector2(3, 3)
 
 [node name="end" type="Timer" parent="."]
 wait_time = 0.3
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="health" type="TextureProgressBar" parent="CanvasLayer"]
+[node name="health" type="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("Player")]
 offset_left = -1.0
 offset_right = 46.0
 offset_bottom = 9.0
@@ -233,6 +234,7 @@ texture_under = ExtResource("36_t4otl")
 texture_over = ExtResource("37_j2b1d")
 texture_progress = ExtResource("38_cs1tg")
 script = ExtResource("39_j2b1d")
+Player = NodePath("../..")
 
 [node name="regent" type="Timer" parent="CanvasLayer/health"]
 

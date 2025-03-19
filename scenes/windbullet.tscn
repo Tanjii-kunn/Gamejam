@@ -8,6 +8,10 @@ radius = 29.1687
 
 [node name="windbullet" type="Area2D"]
 scale = Vector2(0.6, 0.592239)
+collision_layer = 2
+collision_mask = 2
+collision_priority = 2.0
+input_pickable = false
 script = ExtResource("1_ruj7n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -18,4 +22,9 @@ texture = ExtResource("1_1dun7")
 region_enabled = true
 region_rect = Rect2(576.453, 364.049, 47.5414, 36.161)
 
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

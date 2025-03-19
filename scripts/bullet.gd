@@ -9,5 +9,9 @@ func _process(delta: float) -> void:
 	
 func _on_body_entered(body):
 	if body is enemy:
-		body.queue_free()
+		body.healthdep()
 		self.queue_free()
+	elif body is benemy:
+		body.healthdep()
+		self.queue_free()
+	

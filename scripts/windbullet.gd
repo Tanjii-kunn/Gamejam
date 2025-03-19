@@ -14,6 +14,11 @@ func _process(delta: float) -> void:
 		$Sprite2D.flip_h = false
 
 
-func _on_body_entered(body):
-	if body is enemy:
-		self.queue_free()
+
+
+func _on_timer_timeout() -> void:
+	queue_free()
+
+
+func _on_area_entered(area: Area2D) -> void:
+	queue_free()

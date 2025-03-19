@@ -13,13 +13,16 @@ var is_shooting = false
 var reload: bool = true
 var ammo: float
 @export var max_ammo: float = 20
-
+var ccjump: float
+var maxjump: float
 var cchealth = 10
 @export var max_health = 10
 var dmg = randf_range(1 , 3)
 var regenhealth: float = randf_range(1, 3)
 @onready var winfbull = preload("uid://coeffjy8p8twp")
 var reloded_ammo: float
+@export var ddjump: bool = false
+var blastdmg: float = randf_range(4, 7)
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):  # Default is "Esc" key
@@ -73,8 +76,18 @@ func apply_gravity(delta: float):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 func handle_jump():
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	if ddjump == false:
+		if Input.is_action_just_pressed("jump") and is_on_floor():
+			velocity.y = JUMP_VELOCITY
+	else:
+		if Input.is_action_just_pressed("jump"):
+			if ccjump <= 2:
+				velocity.y = JUMP_VELOCITY 
+				ccjump += 1
+
+	if is_on_floor():
+		ccjump = 0
+
 func handle_movement():
 	var direction := Input.get_axis("left", "right")
 
@@ -88,7 +101,6 @@ func handle_movement():
 func handle_animation():
 	if is_shooting:
 		return
-
 
 	if Input.is_action_just_pressed("shoot"):
 		if reload:
