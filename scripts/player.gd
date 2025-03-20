@@ -4,13 +4,8 @@ extends CharacterBody2D
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @export var shoot_cooldown: float = 0.3  # 0.3 seconds cooldown
 var can_shoot: bool = true
-<<<<<<< HEAD
-const SPEED = 130
-var JUMP_VELOCITY = -250.0
-=======
-const SPEED = 100
-const JUMP_VELOCITY = -420.0
->>>>>>> 04dc522643db3b883ea1754c022974fc0d23eff0
+const SPEED = 120
+var JUMP_VELOCITY = -270
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_shooting = false
 @export var move: bool = false
@@ -30,17 +25,9 @@ var reloded_ammo: float
 var blastdmg: float = randf_range(4, 7)
 var can_push:bool = false
 
-func _input(event):
-	if event.is_action_pressed("ui_cancel"):  # Default is "Esc" key
-		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)  # Unlock mouse
-	elif event.is_action_pressed("lr"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)  # Lock mouse
-
 
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	ammo = 10
 	$CanvasLayer.visible = true
 
@@ -51,6 +38,8 @@ func _physics_process(delta: float) -> void:
 		handle_movement()
 		handle_animation()
 
+	if is_on_floor():
+		ccjump = 0
 
 	$CanvasLayer/health/regent.wait_time = randf_range(0.4 , 0.9)
 
@@ -84,15 +73,14 @@ func _physics_process(delta: float) -> void:
 func apply_gravity(delta: float):
 	if not is_on_floor():
 		velocity.y += gravity * delta
+
+
 func handle_jump():
-	if ddjump == false:
-		if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump"):
+		if ccjump < 1:
 			velocity.y = JUMP_VELOCITY
-	else:
-		if Input.is_action_just_pressed("jump"):
-			if not ccjump == 1:
-				velocity.y = JUMP_VELOCITY 
-				ccjump += 1
+			ccjump += 1
+
 
 	if is_on_floor():
 		ccjump = 0
@@ -100,9 +88,14 @@ func handle_jump():
 func handle_movement():
 	var direction := Input.get_axis("left", "right")
 
+
+
 	if direction:
 		velocity.x = direction * SPEED
-		anim.flip_h = direction < 0
+		if direction < 0:
+			anim.flip_h = true
+		else:
+			anim.flip_h = false
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
@@ -141,6 +134,7 @@ func handle_animation():
 				is_shooting = false
 				return
 
+
 	if not is_shooting:
 		if velocity.x != 0:
 			anim.play("run")
@@ -150,10 +144,9 @@ func handle_animation():
 
 func shoot():
 	if not can_shoot:
-		return  # Prevent shooting if cooldown is active
+		return 
 	can_shoot = false  # Disable shooting
 
-	# Regular bullet logic
 	if ammo > 0:
 		ammo -= 1
 	
