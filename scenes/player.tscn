@@ -191,6 +191,7 @@ scale = Vector2(0.4, 0.4)
 script = ExtResource("1_f1ej7")
 move = true
 ddjump = true
+can_push = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(5, 2.5)

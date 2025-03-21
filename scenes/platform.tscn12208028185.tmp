@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://briss1y8vji2u"]
+
+[ext_resource type="Texture2D" uid="uid://cphgscje8hcn3" path="res://assests/CartoonDetective/GameJam_tilemap_01.png" id="1_ba0x2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ba0x2"]
+size = Vector2(48, 16)
+
+[node name="platform" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ba0x2")
+region_enabled = true
+region_rect = Rect2(143.97, 48.1613, 47.5808, 15.8603)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_ba0x2")
+one_way_collision = true
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true

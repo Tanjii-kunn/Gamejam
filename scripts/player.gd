@@ -23,7 +23,7 @@ var regenhealth: float = randf_range(1, 3)
 var reloded_ammo: float
 @export var ddjump: bool = false
 var blastdmg: float = randf_range(4, 7)
-var can_push:bool = false
+@export var can_push:bool = false
 
 
 
@@ -37,6 +37,14 @@ func _physics_process(delta: float) -> void:
 		handle_jump()
 		handle_movement()
 		handle_animation()
+		var mousepos = get_local_mouse_position()
+		if mousepos.x < 0:
+			anim.flip_h = true
+		else:
+			anim.flip_h = false
+
+
+
 
 	if is_on_floor():
 		ccjump = 0
@@ -92,10 +100,6 @@ func handle_movement():
 
 	if direction:
 		velocity.x = direction * SPEED
-		if direction < 0:
-			anim.flip_h = true
-		else:
-			anim.flip_h = false
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
