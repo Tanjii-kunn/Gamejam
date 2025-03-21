@@ -1,6 +1,13 @@
 class_name player
 extends CharacterBody2D
 
+
+
+@export_category("Player Movement")
+@export var move: bool = false
+@export var can_push:bool = false
+@export var ddjump: bool = false
+@export_category("Other Shit")
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @export var shoot_cooldown: float = 0.3  # 0.3 seconds cooldown
 var can_shoot: bool = true
@@ -8,7 +15,6 @@ const SPEED = 120
 var JUMP_VELOCITY = -270
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_shooting = false
-@export var move: bool = false
 @onready var bullet_scene = preload("uid://b10v1out16h0v")  # Load bullet scene
 var reload: bool = true
 var ammo: float
@@ -21,9 +27,8 @@ var dmg = randf_range(1 , 3)
 var regenhealth: float = randf_range(1, 3)
 @onready var winfbull = preload("res://scenes/windbullet.tscn")
 var reloded_ammo: float
-@export var ddjump: bool = false
 var blastdmg: float = randf_range(4, 7)
-@export var can_push:bool = false
+
 
 
 

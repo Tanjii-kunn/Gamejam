@@ -1,3 +1,3 @@
 extends Node
 
-var playerposx = Vector2(232 , -8)
+var playerposx = Vector2(4 , -66)

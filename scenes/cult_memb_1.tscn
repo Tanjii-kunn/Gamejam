@@ -183,7 +183,7 @@ height = 40.0
 radius = 89.2329
 
 [node name="cult_memb1" type="CharacterBody2D" groups=["enemy"]]
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.4, 0.4)
 script = ExtResource("1_wmitl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -197,25 +197,21 @@ position = Vector2(3.00927e-36, -5)
 shape = SubResource("CapsuleShape2D_ay86n")
 
 [node name="left" type="RayCast2D" parent="."]
-visible = false
-target_position = Vector2(-22.5, 0)
+target_position = Vector2(-25, 0)
 collide_with_areas = true
 
 [node name="right" type="RayCast2D" parent="."]
-visible = false
 exclude_parent = false
-target_position = Vector2(22.5, 0)
+target_position = Vector2(25, 0)
 
 [node name="d left" type="RayCast2D" parent="."]
-visible = false
-position = Vector2(-10, 12.5)
+position = Vector2(-15, 12.5)
 exclude_parent = false
 target_position = Vector2(0, 17.5)
 collide_with_areas = true
 
 [node name="d right" type="RayCast2D" parent="."]
-visible = false
-position = Vector2(7.5, 12.5)
+position = Vector2(20, 12.5)
 exclude_parent = false
 target_position = Vector2(0, 17.5)
 collide_with_areas = true

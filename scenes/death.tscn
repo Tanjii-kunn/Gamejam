@@ -25,10 +25,6 @@ func _on_timer_timeout() -> void:
 		pass
 	elif Lvls.l3 == false:
 		pass
-
-func _ready() -> void:
-		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE) 
 "
 
 [node name="death" type="Control"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dn5chb0rqhksr"]
 
-[ext_resource type="Texture2D" uid="uid://cphgscje8hcn3" path="res://assests/CartoonDetective/GameJam_tilemap_01.png" id="1_ba0x2"]
+[ext_resource type="Texture2D" uid="uid://cphgscje8hcn3" path="res://assests/Pixel UI pack 3/CartoonDetective/GameJam_tilemap_01.png" id="1_ba0x2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ba0x2"]
 size = Vector2(48, 16)
@@ -10,7 +10,7 @@ size = Vector2(48, 16)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ba0x2")
 region_enabled = true
-region_rect = Rect2(143.97, 48.1613, 47.5808, 15.8603)
+region_rect = Rect2(96.2612, 63.886, 47.6642, 15.97)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://xylsypkle4u6"]
+[gd_scene load_steps=47 format=3 uid="uid://xylsypkle4u6"]
 
 [ext_resource type="Script" uid="uid://bsreugbfyymb1" path="res://scripts/player.gd" id="1_f1ej7"]
 [ext_resource type="Texture2D" uid="uid://dxt7s00qv84p7" path="res://assests/CartoonDetective/Idle/idle.png" id="2_hax0n"]
@@ -8,29 +8,23 @@
 [ext_resource type="Texture2D" uid="uid://bwn1k5n8yxq2j" path="res://assests/Pixel UI pack 3/CartoonDetective/Reload/Reload_04.png" id="9_j2b1d"]
 [ext_resource type="Texture2D" uid="uid://cu1jofgfcvk8b" path="res://assests/Pixel UI pack 3/CartoonDetective/Reload/Reload_05.png" id="10_cs1tg"]
 [ext_resource type="Texture2D" uid="uid://fti2t816fhus" path="res://assests/Pixel UI pack 3/CartoonDetective/Reload/Reload_06.png" id="11_2dvfe"]
-[ext_resource type="Texture2D" uid="uid://dt2ot4t04qgm4" path="res://assests/Pixel UI pack 3/CartoonDetective/Run/Run_01.png" id="11_l71n6"]
 [ext_resource type="Texture2D" uid="uid://dlwt6s7iakb8u" path="res://assests/Pixel UI pack 3/CartoonDetective/Reload/Reload_07.png" id="12_giy8y"]
-[ext_resource type="Texture2D" uid="uid://buoonhi8i2hu2" path="res://assests/Pixel UI pack 3/CartoonDetective/Run/Run_02.png" id="12_ke2ow"]
 [ext_resource type="Texture2D" uid="uid://dxap61urkodxf" path="res://assests/Pixel UI pack 3/CartoonDetective/Reload/Reload_08.png" id="13_fdfoy"]
-[ext_resource type="Texture2D" uid="uid://0kqrmywxwjcm" path="res://assests/Pixel UI pack 3/CartoonDetective/Run/Run_03.png" id="13_ujl30"]
-[ext_resource type="Texture2D" uid="uid://do0lb2451xdq3" path="res://assests/Pixel UI pack 3/CartoonDetective/Run/Run_04.png" id="14_31cv2"]
 [ext_resource type="Texture2D" uid="uid://bgwvt3b4beb4o" path="res://assests/Pixel UI pack 3/CartoonDetective/Reload/Reload_09.png" id="14_hhpqf"]
 [ext_resource type="Texture2D" uid="uid://cuyf6mp13xw7d" path="res://assests/Pixel UI pack 3/CartoonDetective/Shoot/Shoot_01.png" id="15_4r5pv"]
 [ext_resource type="Texture2D" uid="uid://bljh61qylthi6" path="res://assests/Pixel UI pack 3/CartoonDetective/Reload/Reload_10.png" id="15_g5jhy"]
-[ext_resource type="Texture2D" uid="uid://22cvp3ipjope" path="res://assests/Pixel UI pack 3/CartoonDetective/Run/Run_05.png" id="15_pf23h"]
 [ext_resource type="Texture2D" uid="uid://fi2lho71gubw" path="res://assests/Pixel UI pack 3/CartoonDetective/Shoot/Shoot_02.png" id="16_60mlk"]
-[ext_resource type="Texture2D" uid="uid://cglfexqs52ejv" path="res://assests/Pixel UI pack 3/CartoonDetective/Run/Run_06.png" id="16_dt7fs"]
 [ext_resource type="Texture2D" uid="uid://c0hy1gfumt5b3" path="res://assests/Pixel UI pack 3/CartoonDetective/Reload/Reload_11.png" id="16_holxr"]
 [ext_resource type="Texture2D" uid="uid://c6tvnifbj3yfl" path="res://assests/Pixel UI pack 3/CartoonDetective/Shoot/Shoot_03.png" id="17_i4ail"]
 [ext_resource type="Texture2D" uid="uid://do4bg2x44lt7o" path="res://assests/Pixel UI pack 3/CartoonDetective/Reload/Reload_12.png" id="17_mx1m4"]
-[ext_resource type="Texture2D" uid="uid://smhcqqkuxg0c" path="res://assests/Pixel UI pack 3/CartoonDetective/Run/Run_07.png" id="17_wqfne"]
 [ext_resource type="Texture2D" uid="uid://6bfsn1qcghgm" path="res://assests/Pixel UI pack 3/CartoonDetective/Reload/Reload_13.png" id="18_4gjji"]
 [ext_resource type="Texture2D" uid="uid://djfe4iu24yjar" path="res://assests/Pixel UI pack 3/CartoonDetective/Shoot/Shoot_04.png" id="18_a38lo"]
-[ext_resource type="Texture2D" uid="uid://dl0kfovxcgmnm" path="res://assests/Pixel UI pack 3/CartoonDetective/Run/Run_08.png" id="18_wnwbv"]
 [ext_resource type="Texture2D" uid="uid://fwjbdl40vhyj" path="res://assests/Pixel UI pack 3/CartoonDetective/Shoot/Shoot_05.png" id="19_4ni07"]
 [ext_resource type="Texture2D" uid="uid://nc1d0sy0ldam" path="res://assests/Pixel UI pack 3/CartoonDetective/Reload/Reload_14.png" id="19_u2ulf"]
 [ext_resource type="Texture2D" uid="uid://c3bi6nrchiaer" path="res://assests/Pixel UI pack 3/CartoonDetective/Reload/Reload_15.png" id="20_6e8lb"]
+[ext_resource type="Texture2D" uid="uid://dy5wcqtfhilaa" path="res://assests/CartoonDetective/Run/run1.png" id="20_wnwbv"]
 [ext_resource type="Texture2D" uid="uid://ue167v5sddga" path="res://assests/Pixel UI pack 3/CartoonDetective/Reload/Reload_16.png" id="21_2gdjj"]
+[ext_resource type="Texture2D" uid="uid://0icikmxneakj" path="res://assests/CartoonDetective/Run/run2.png" id="21_gl8cc"]
 [ext_resource type="Texture2D" uid="uid://bwifouoi0jqub" path="res://assests/Pixel UI pack 3/CartoonDetective/Reload/Reload_17.png" id="22_sc3ue"]
 [ext_resource type="Texture2D" uid="uid://xn5pdvtdp7eu" path="res://assests/Pixel UI pack 3/under.png" id="36_t4otl"]
 [ext_resource type="Texture2D" uid="uid://beh4y2dxdrubw" path="res://assests/Pixel UI pack 3/over.png" id="37_j2b1d"]
@@ -54,6 +48,38 @@ region = Rect2(0, 64, 64, 64)
 atlas = ExtResource("2_hax0n")
 region = Rect2(64, 64, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_487ah"]
+atlas = ExtResource("20_wnwbv")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_md1ol"]
+atlas = ExtResource("20_wnwbv")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bj30b"]
+atlas = ExtResource("20_wnwbv")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jc3p3"]
+atlas = ExtResource("20_wnwbv")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hax0n"]
+atlas = ExtResource("21_gl8cc")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_giy8y"]
+atlas = ExtResource("21_gl8cc")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fdfoy"]
+atlas = ExtResource("21_gl8cc")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhpqf"]
+atlas = ExtResource("21_gl8cc")
+region = Rect2(64, 64, 64, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_u8vuu"]
 animations = [{
 "frames": [{
@@ -71,7 +97,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 7.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -131,32 +157,32 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("11_l71n6")
+"texture": SubResource("AtlasTexture_487ah")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_ke2ow")
+"texture": SubResource("AtlasTexture_md1ol")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_ujl30")
+"texture": SubResource("AtlasTexture_bj30b")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_31cv2")
+"texture": SubResource("AtlasTexture_jc3p3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_pf23h")
+"texture": SubResource("AtlasTexture_hax0n")
 }, {
 "duration": 1.0,
-"texture": ExtResource("16_dt7fs")
+"texture": SubResource("AtlasTexture_giy8y")
 }, {
 "duration": 1.0,
-"texture": ExtResource("17_wqfne")
+"texture": SubResource("AtlasTexture_fdfoy")
 }, {
 "duration": 1.0,
-"texture": ExtResource("18_wnwbv")
+"texture": SubResource("AtlasTexture_hhpqf")
 }],
 "loop": true,
 "name": &"run",
-"speed": 7.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -190,17 +216,16 @@ height = 40.0
 scale = Vector2(0.4, 0.4)
 script = ExtResource("1_f1ej7")
 move = true
-ddjump = true
 can_push = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(5, 2.5)
+position = Vector2(2.5, 2.5)
 sprite_frames = SubResource("SpriteFrames_u8vuu")
-animation = &"idle"
-frame_progress = 0.517779
+animation = &"run"
+frame_progress = 0.0887926
 
 [node name="w" type="CollisionShape2D" parent="."]
-position = Vector2(1.25, -1.265)
+position = Vector2(1.19209e-07, -1.19209e-07)
 shape = SubResource("CapsuleShape2D_jej6c")
 
 [node name="hitzone" type="Area2D" parent="."]
