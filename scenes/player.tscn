@@ -222,7 +222,7 @@ can_push = true
 position = Vector2(2.38419e-07, 2.5)
 sprite_frames = SubResource("SpriteFrames_u8vuu")
 animation = &"idle"
-frame_progress = 0.752303
+frame_progress = 0.430634
 
 [node name="w" type="CollisionShape2D" parent="."]
 position = Vector2(2.38419e-07, -8.47033e-22)
