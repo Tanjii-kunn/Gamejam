@@ -219,7 +219,7 @@ move = true
 can_push = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(2.38419e-07, 2.5)
+position = Vector2(-1.28, 3.84)
 sprite_frames = SubResource("SpriteFrames_u8vuu")
 animation = &"idle"
 frame_progress = 0.430634
