@@ -3,7 +3,7 @@ extends Area2D
 
 @export var speed: float = 300.0  # Speed of the bullet
 @onready var direction = Vector2.ZERO
-@onready var Player: player = $player/player
+
 
 
 func _process(delta: float) -> void:

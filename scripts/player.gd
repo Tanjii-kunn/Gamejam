@@ -2,7 +2,7 @@ class_name player
 extends CharacterBody2D
 
 
-
+@onready var jumpscare: AnimatedSprite2D = $jumpscare
 @export_category("Player Movement")
 @export var move: bool = false
 @export var can_push:bool = false
@@ -37,8 +37,8 @@ func _ready():
 	$CanvasLayer.visible = true
 
 func _physics_process(delta: float) -> void:
+	apply_gravity(delta)
 	if move == true:
-		apply_gravity(delta)
 		handle_jump()
 		handle_movement()
 		handle_animation()
@@ -49,7 +49,9 @@ func _physics_process(delta: float) -> void:
 			anim.flip_h = false
 
 
-
+	if move == false:
+		anim.play("idle")
+		anim.flip_h = false
 
 	if is_on_floor():
 		ccjump = 0
@@ -57,18 +59,20 @@ func _physics_process(delta: float) -> void:
 	$CanvasLayer/health/regent.wait_time = randf_range(0.4 , 0.9)
 
 	$CanvasLayer/no.text = str(ammo) +"/"+ str(max_ammo)
-	
 
-	if Input.is_action_just_pressed("reload"):
-		anim.play("reload")
-		is_shooting = true
-		await anim.animation_finished
-		if max_ammo > 0:
-			if ammo < 10:
-				reloded_ammo = 10 - ammo
-				ammo += reloded_ammo
-				max_ammo = max_ammo - reloded_ammo
-		is_shooting = false
+
+
+	if ammo < 10:
+		if Input.is_action_just_pressed("reload"):
+			anim.play("reload")
+			is_shooting = true
+			await anim.animation_finished
+			if max_ammo > 0:
+				if ammo < 10:
+					reloded_ammo = 10 - ammo
+					ammo += reloded_ammo
+					max_ammo = max_ammo - reloded_ammo
+			is_shooting = false
 
 
 	if cchealth <= 0:
