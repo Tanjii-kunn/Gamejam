@@ -219,10 +219,9 @@ move = true
 can_push = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1.28, 3.84)
+position = Vector2(-1.28, 4.385)
 sprite_frames = SubResource("SpriteFrames_u8vuu")
 animation = &"idle"
-frame_progress = 0.430634
 
 [node name="w" type="CollisionShape2D" parent="."]
 position = Vector2(2.38419e-07, -8.47033e-22)
@@ -282,6 +281,8 @@ target_position = Vector2(20, 0)
 
 [node name="right" type="RayCast2D" parent="."]
 target_position = Vector2(-20, 0)
+
+[node name="jumpscare" type="AnimatedSprite2D" parent="."]
 
 [connection signal="timeout" from="end" to="." method="_on_end_timeout"]
 [connection signal="timeout" from="CanvasLayer/health/regent" to="." method="_on_regent_timeout"]
