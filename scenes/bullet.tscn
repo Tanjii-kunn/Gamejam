@@ -18,15 +18,17 @@ script = ExtResource("1_y25gk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("CanvasItemMaterial_y25gk")
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_mkf8s")
 region_enabled = true
-region_rect = Rect2(388.769, 85.0616, 7.41138, 6.09154)
+region_rect = Rect2(371.905, 70.5739, 7.81747, 3.5534)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
+scale = Vector2(0.25, 0.25)
 shape = SubResource("CircleShape2D_y25gk")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+visible = false
 scale = Vector2(0.4, 0.3)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

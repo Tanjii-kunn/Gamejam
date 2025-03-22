@@ -4,19 +4,24 @@
 [ext_resource type="Texture2D" uid="uid://dsqd30jsqmqnq" path="res://assests/All_Fire_Bullet_Pixel_16x16_01.png" id="1_ivo10"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4umwg"]
-radius = 2.99928
-height = 5.99988
+radius = 1.99996
+height = 3.99992
 
 [node name="enebulletet" type="Area2D"]
 script = ExtResource("1_4umwg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_ivo10")
 region_enabled = true
-region_rect = Rect2(181.701, 245.458, 5.54036, 5.40523)
+region_rect = Rect2(450.021, 102.927, 12.917, 3.05703)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = -1.57706
 shape = SubResource("CapsuleShape2D_4umwg")
 
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+scale = Vector2(0.2, 0.2)
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
