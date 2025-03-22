@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3r6kqlg02owk"
-path="res://.godot/imported/jumpscare.png-49f91243dd8b383ad40675e455e94dca.ctex"
+uid="uid://cf2uxrxkjdg18"
+path="res://.godot/imported/tileinv.png-dc05d80f4978e0a93c12fa97e0bd78dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assests/CartoonDetective/jumpscare.png"
-dest_files=["res://.godot/imported/jumpscare.png-49f91243dd8b383ad40675e455e94dca.ctex"]
+source_file="res://assests/CartoonDetective/tileinv.png"
+dest_files=["res://.godot/imported/tileinv.png-dc05d80f4978e0a93c12fa97e0bd78dd.ctex"]
 
 [params]
 

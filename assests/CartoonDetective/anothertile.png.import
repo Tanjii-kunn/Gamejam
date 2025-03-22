@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxpcg5k8ajjg8"
-path="res://.godot/imported/redMob_attac.png-41ed72fa674155c7db2ad4e157a67343.ctex"
+uid="uid://32v6u64uniav"
+path="res://.godot/imported/anothertile.png-f2d03fe2f58bc657bb6b802b9e58fb92.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assests/CartoonDetective/redMob/redMob_attac.png"
-dest_files=["res://.godot/imported/redMob_attac.png-41ed72fa674155c7db2ad4e157a67343.ctex"]
+source_file="res://assests/CartoonDetective/anothertile.png"
+dest_files=["res://.godot/imported/anothertile.png-f2d03fe2f58bc657bb6b802b9e58fb92.ctex"]
 
 [params]
 

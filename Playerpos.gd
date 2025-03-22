@@ -1,3 +1,3 @@
 extends Node
 
-var playerposx = Vector2(4 , -66)
+@export var playerposx = Vector2(4 , -66)
