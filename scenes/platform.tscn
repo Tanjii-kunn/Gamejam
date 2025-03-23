@@ -16,6 +16,3 @@ region_rect = Rect2(96.2612, 63.886, 47.6642, 15.97)
 visible = false
 shape = SubResource("RectangleShape2D_ba0x2")
 one_way_collision = true
-
-[node name="Timer" type="Timer" parent="."]
-autostart = true
