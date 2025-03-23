@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://br5fwyw0krsgi" path="res://scenes/death_itself.tscn" id="16_muem4"]
 [ext_resource type="PackedScene" uid="uid://cw2p47gtcec22" path="res://scenes/ammunation.tscn" id="17_muem4"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_muem4"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jbj1t"]
 texture = ExtResource("2_jkv2x")
 0:0/0 = 0
 1:0/0 = 0
@@ -99,17 +99,17 @@ texture = ExtResource("2_jkv2x")
 9:6/0 = 0
 10:6/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jbj1t"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_muem4"]
 texture = ExtResource("3_a8y0u")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a8y0u"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dp3eg"]
 texture = ExtResource("3_trceg")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_trceg"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0ld40"]
 texture = ExtResource("4_tefeu")
 3:0/0 = 0
 4:0/0 = 0
@@ -211,18 +211,18 @@ texture = ExtResource("4_tefeu")
 2:4/0 = 0
 2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jkv2x"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gqmmt"]
 texture = ExtResource("5_a8y0u")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_jkv2x"]
 physics_layer_0/collision_layer = 1
-sources/3 = SubResource("TileSetAtlasSource_trceg")
-sources/1 = SubResource("TileSetAtlasSource_jbj1t")
-sources/2 = SubResource("TileSetAtlasSource_a8y0u")
-sources/4 = SubResource("TileSetAtlasSource_jkv2x")
-sources/0 = SubResource("TileSetAtlasSource_muem4")
+sources/3 = SubResource("TileSetAtlasSource_0ld40")
+sources/1 = SubResource("TileSetAtlasSource_muem4")
+sources/2 = SubResource("TileSetAtlasSource_dp3eg")
+sources/4 = SubResource("TileSetAtlasSource_gqmmt")
+sources/0 = SubResource("TileSetAtlasSource_jbj1t")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_choun"]
 shader = ExtResource("6_85g3d")
@@ -362,7 +362,8 @@ script/source = "extends Area2D
 
 
 func _on_body_entered(body: Node2D) -> void:
-	Playerpos.playerposx = Vector2(3717 , -251)
+	if body is player:
+		Playerpos.playerposx = Vector2(3717 , -251)
 "
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_a8y0u"]
@@ -388,6 +389,33 @@ func _on_body_entered(body: Node2D) -> void:
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_jbj1t"]
 b = Vector2(0, 134)
+
+[sub_resource type="Animation" id="Animation_muem4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4521, -268)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_jbj1t"]
 resource_name = "new_animation"
@@ -441,33 +469,6 @@ tracks/3/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_muem4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(4521, -268)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
 [sub_resource type="Animation" id="Animation_dp3eg"]
 resource_name = "new_animation_2"
 length = 1.5
@@ -498,7 +499,8 @@ script/source = "extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is player:
-		pass
+		get_tree().change_scene_to_file(\"res://scenes/loding_screen.tscn\")
+		Lvls.l1 = true
 "
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_muem4"]
@@ -511,6 +513,7 @@ script = ExtResource("1_trceg")
 [node name="map" type="Node" parent="."]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="map"]
+color = Color(0.577008, 0.577008, 0.577008, 1)
 
 [node name="TileMap" type="TileMap" parent="map"]
 position = Vector2(-1, 0)
@@ -692,15 +695,23 @@ script = SubResource("GDScript_ya4ey")
 position = Vector2(-3, -83)
 shape = SubResource("SegmentShape2D_ya4ey")
 
-[node name="cc4" type="Area2D" parent="obj"]
+[node name="cc4" type="Area2D" parent="obj/checkpoints"]
 position = Vector2(3698, -251)
 script = SubResource("GDScript_jbj1t")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="obj/cc4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="obj/checkpoints/cc4"]
 position = Vector2(3, -73)
 shape = SubResource("SegmentShape2D_a8y0u")
 
 [node name="playerhelp" type="Node" parent="obj"]
+
+[node name="Aid2" parent="obj/playerhelp" instance=ExtResource("16_jbj1t")]
+position = Vector2(3925, 23)
+scale = Vector2(0.6, 0.6)
+
+[node name="Aid3" parent="obj/playerhelp" instance=ExtResource("16_jbj1t")]
+position = Vector2(3932, 23)
+scale = Vector2(0.6, 0.6)
 
 [node name="Aid" parent="obj/playerhelp" instance=ExtResource("16_jbj1t")]
 position = Vector2(2642, -106)
@@ -734,11 +745,17 @@ script = SubResource("GDScript_dp3eg")
 position = Vector2(-26.6626, -0.230347)
 shape = SubResource("SegmentShape2D_muem4")
 
+[node name="ammunation2" parent="obj/playerhelp" instance=ExtResource("17_muem4")]
+position = Vector2(3942, 20)
+
+[node name="ammunation3" parent="obj/playerhelp" instance=ExtResource("17_muem4")]
+position = Vector2(3954, 20)
+
 [connection signal="body_entered" from="enimes/death" to="enimes/death" method="_on_body_entered"]
 [connection signal="body_entered" from="obj/checkpoints/checkpoint" to="obj/checkpoints/checkpoint" method="_on_body_entered"]
 [connection signal="body_entered" from="obj/checkpoints/cc2" to="obj/checkpoints/cc2" method="_on_body_entered"]
 [connection signal="body_entered" from="obj/checkpoints/ccc3" to="obj/checkpoints/ccc3" method="_on_body_entered"]
-[connection signal="body_entered" from="obj/cc4" to="obj/cc4" method="_on_body_entered"]
+[connection signal="body_entered" from="obj/checkpoints/cc4" to="obj/checkpoints/cc4" method="_on_body_entered"]
 [connection signal="body_entered" from="obj/playerhelp/jumpscarpo" to="obj/playerhelp/jumpscarpo" method="_on_body_entered"]
 [connection signal="body_entered" from="obj/playerhelp/tolvl2" to="obj/playerhelp/tolvl2" method="_on_body_entered"]
 

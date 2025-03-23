@@ -20,11 +20,11 @@ var reload: bool = true
 var ammo: float
 @export var max_ammo: float = 20
 var ccjump: float
-var maxjump: float
+var maxjump: float = 10
 var cchealth = 10
 @export var max_health = 10
 var dmg = randf_range(1 , 3)
-var regenhealth: float = randf_range(1, 3)
+var regenhealth: float
 @onready var winfbull = preload("res://scenes/windbullet.tscn")
 var reloded_ammo: float
 var blastdmg: float = randf_range(4, 7)
@@ -35,6 +35,7 @@ var blastdmg: float = randf_range(4, 7)
 func _ready():
 	ammo = 10
 	$CanvasLayer.visible = true
+	
 
 func _physics_process(delta: float) -> void:
 	apply_gravity(delta)
@@ -48,7 +49,6 @@ func _physics_process(delta: float) -> void:
 		else:
 			anim.flip_h = false
 
-
 	if move == false:
 		anim.play("idle")
 		anim.flip_h = false
@@ -61,6 +61,7 @@ func _physics_process(delta: float) -> void:
 	$CanvasLayer/no.text = str(ammo) +"/"+ str(max_ammo)
 
 
+	regenhealth = max_health - cchealth
 
 	if ammo < 10:
 		if Input.is_action_just_pressed("reload"):
@@ -197,7 +198,7 @@ func pushshoot():
 	await get_tree().create_timer(shoot_cooldown).timeout
 	can_push = true  # Allow shooting again
 
-func _on_regent_timeout() -> void:
+func regen():
 	cchealth += regenhealth
 
 func _on_end_timeout() -> void:

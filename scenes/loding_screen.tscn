@@ -1,6 +1,7 @@
-[gd_scene load_steps=61 format=3 uid="uid://bncahkbxsuddj"]
+[gd_scene load_steps=62 format=3 uid="uid://bncahkbxsuddj"]
 
 [ext_resource type="Texture2D" uid="uid://c8asx5hghtbu1" path="res://assests/CartoonDetective/load_thing_1.png" id="1_jol2g"]
+[ext_resource type="Script" uid="uid://3hi17lrah11w" path="res://scenes/loding_screen.gd" id="1_kn6hp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kn6hp"]
 atlas = ExtResource("1_jol2g")
@@ -417,6 +418,7 @@ animations = [{
 }]
 
 [node name="loding screen" type="CanvasLayer"]
+script = ExtResource("1_kn6hp")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
