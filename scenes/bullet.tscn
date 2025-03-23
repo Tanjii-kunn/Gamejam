@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b10v1out16h0v"]
+[gd_scene load_steps=6 format=3 uid="uid://b10v1out16h0v"]
 
 [ext_resource type="Texture2D" uid="uid://dsqd30jsqmqnq" path="res://assests/All_Fire_Bullet_Pixel_16x16_01.png" id="1_mkf8s"]
 [ext_resource type="Script" uid="uid://bfdenprovwh4h" path="res://scripts/bullet.gd" id="1_y25gk"]
+[ext_resource type="AudioStream" uid="uid://coqnf4yijmdgf" path="res://msuic/gun.wav" id="3_l5glv"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_y25gk"]
 particles_animation = true
@@ -29,6 +30,9 @@ shape = SubResource("CircleShape2D_y25gk")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 scale = Vector2(0.1, 0.1)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_l5glv")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

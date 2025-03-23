@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://1vl4u67tl7qd"]
+[gd_scene load_steps=5 format=3 uid="uid://1vl4u67tl7qd"]
 
 [ext_resource type="Script" uid="uid://d2rapbn8f7n1y" path="res://scripts/enebulletet.gd" id="1_4umwg"]
 [ext_resource type="Texture2D" uid="uid://dsqd30jsqmqnq" path="res://assests/All_Fire_Bullet_Pixel_16x16_01.png" id="1_ivo10"]
+[ext_resource type="AudioStream" uid="uid://blliaxf46d48v" path="res://msuic/explosion-312361.mp3" id="3_7r3no"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4umwg"]
 radius = 1.99996
@@ -23,6 +24,10 @@ shape = SubResource("CapsuleShape2D_4umwg")
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 position = Vector2(0, 1.90735e-07)
 scale = Vector2(0.2, 0.2)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_7r3no")
+pitch_scale = 7.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

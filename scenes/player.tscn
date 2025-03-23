@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://xylsypkle4u6"]
+[gd_scene load_steps=57 format=3 uid="uid://xylsypkle4u6"]
 
 [ext_resource type="Script" uid="uid://bsreugbfyymb1" path="res://scripts/player.gd" id="1_f1ej7"]
 [ext_resource type="Texture2D" uid="uid://dxt7s00qv84p7" path="res://assests/CartoonDetective/Idle/idle.png" id="2_hax0n"]
@@ -38,6 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://dwquew243dfve" path="res://assests/CartoonDetective/jumpscare/071ff94c-4458-4fb8-9b45-f4decb3a46d7-6.png" id="38_g5jhy"]
 [ext_resource type="Texture2D" uid="uid://wj61ffvoywim" path="res://assests/CartoonDetective/jumpscare/071ff94c-4458-4fb8-9b45-f4decb3a46d7-7.png" id="39_holxr"]
 [ext_resource type="Script" uid="uid://bs5v3ssxvmexd" path="res://scripts/health.gd" id="39_j2b1d"]
+[ext_resource type="AudioStream" uid="uid://ccm1taksicevc" path="res://msuic/mag-reload-81594.mp3" id="40_2dvfe"]
 [ext_resource type="FontFile" uid="uid://b8b175vxmn673" path="res://assests/Super Peace.ttf" id="40_cs1tg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t4otl"]
@@ -335,6 +336,11 @@ sprite_frames = SubResource("SpriteFrames_mx1m4")
 animation = &"1"
 frame = 9
 frame_progress = 1.0
+
+[node name="reload" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("40_2dvfe")
+volume_db = 3.2
+pitch_scale = 1.09
 
 [connection signal="timeout" from="end" to="." method="_on_end_timeout"]
 [connection signal="timeout" from="CanvasLayer/health/regent" to="." method="_on_regent_timeout"]

@@ -37,6 +37,8 @@ func _physics_process(_delta: float) -> void:
 
 	push()
 
+
+
 	if $AnimatedSprite2D.flip_h == false:
 		$Area2D.rotation = 0
 	else:
@@ -94,7 +96,8 @@ func ondetec():
 	dir = 0
 	blasting = true
 	anim.play("blast")
-	await get_tree().create_timer(shoot_cooldown).timeout
+	await anim.animation_finished
+	$AudioStreamPlayer2D.play()
 	$blastrd/CollisionShape2D.disabled = false
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -131,4 +134,12 @@ func _on_blastrd_body_entered(body: Node2D) -> void:
 		body.cchealth -= body.blastdmg
 	elif body is enemy:
 		body.cchealthh -= body.bldmg
+	$blastrd/CollisionShape2D.disabled = true
+	$Area2D/CollisionShape2D.disabled = true
+	$AnimatedSprite2D.visible = false
+	$CollisionShape2D.disabled = true
+	$exp.start()
+
+
+func _on_exp_timeout() -> void:
 	queue_free()
