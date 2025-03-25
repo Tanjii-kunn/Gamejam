@@ -13,37 +13,40 @@ var can_shoot: bool = true
 @onready var healtn: TextureProgressBar = $healtn
 var cchealthh:float = 10
 var dmg: float = randf_range(2 ,5)
-
+var out:bool
 
 
 func _physics_process(_delta: float) -> void:
-	if cchealthh > 1:
-		if detected == false:
-			move()
-			handleani()
-			timer.wait_time = randf_range(3 , 7)
-		else:
-			shoot()
-		push()
-	
-	healtn.value = cchealthh
-	
-	if cchealthh < 1:
-		dir = 0
-		anim.play("ded")
-		await anim.animation_finished
-		queue_free()
+	if out == false:
+		if cchealthh > 1:
+			if detected == false:
+				move()
+				handleani()
+				timer.wait_time = randf_range(3 , 7)
+			else:
+				shoot()
+			push()
+		
+		healtn.value = cchealthh
+		
+		if cchealthh < 1:
+			dir = 0
+			anim.play("ded")
+			await anim.animation_finished
+			queue_free()
 
-	if $AnimatedSprite2D.flip_h == false:
-		$Area2D.rotation = 0
-	else:
-		$Area2D.rotation = -180
-	$dire.wait_time = randf_range(4 , 9)
+		if $AnimatedSprite2D.flip_h == false:
+			$Area2D.rotation = 0
+		else:
+			$Area2D.rotation = -180
+		$dire.wait_time = randf_range(4 , 9)
+
 func handleani():
-	if  dir == 0:
-		anim.play("idle")
-	else:
-		anim.play("run")
+	if out == false:
+		if  dir == 0:
+			anim.play("idle")
+		else:
+			anim.play("run")
 
 
 func _on_timer_timeout() -> void:
@@ -53,37 +56,38 @@ func _on_timer_timeout() -> void:
 		dir = 0
 
 func move():
-	if not is_on_floor():
-		velocity.y += 9.91
-	else:
-		velocity.y = 0
+	if out == false:
+		if not is_on_floor():
+			velocity.y += 9.91
+		else:
+			velocity.y = 0
 
 
-	if $"d left".is_colliding():
-		if dir == 1:
-			dir = -1
-		elif dir == -1:
+		if $"d left".is_colliding():
+			if dir == 1:
+				dir = -1
+			elif dir == -1:
+				dir = 1
+
+		if $"d right".is_colliding():
+			if dir == 1:
+				dir = -1
+			elif dir == -1:
+				dir = 1
+
+		if dir < 0:
+			anim.flip_h = true
+		else:
+			anim.flip_h = false
+
+		if $left.is_colliding():
 			dir = 1
 
-	if $"d right".is_colliding():
-		if dir == 1:
+		if $right.is_colliding():
 			dir = -1
-		elif dir == -1:
-			dir = 1
 
-	if dir < 0:
-		anim.flip_h = true
-	else:
-		anim.flip_h = false
-
-	if $left.is_colliding():
-		dir = 1
-
-	if $right.is_colliding():
-		dir = -1
-
-	velocity.x = dir * speed
-	move_and_slide()
+		velocity.x = dir * speed
+		move_and_slide()
 
 func healthdep():
 	if healtn.value > 0:
@@ -140,3 +144,10 @@ func push():
 			position.x += 20
 		elif $"2".is_colliding():
 			position.x -= 20
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	out = true
+
+func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	out = false

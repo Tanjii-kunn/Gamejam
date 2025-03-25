@@ -10,7 +10,7 @@ extends CharacterBody2D
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @export var shoot_cooldown: float = 0.3  # 0.3 seconds cooldown
 var can_shoot: bool = true
-const SPEED = 120
+const SPEED = 110
 var JUMP_VELOCITY = -270
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var is_shooting = false
@@ -79,8 +79,12 @@ func handle_jump():
 func handle_movement():
 	var direction := Input.get_axis("left", "right")
 	if direction:
+		if is_on_floor():
+			if not $AudioStreamPlayer2D.playing:
+				$AudioStreamPlayer2D.play()
 		velocity.x = direction * SPEED
 	else:
+		$AudioStreamPlayer2D.stop()
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
 

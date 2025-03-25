@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cw2p47gtcec22"]
+[gd_scene load_steps=5 format=3 uid="uid://cw2p47gtcec22"]
 
 [ext_resource type="Script" uid="uid://cd0sxqtepjj2x" path="res://scripts/ammunation.gd" id="1_sh3et"]
 [ext_resource type="Texture2D" uid="uid://rvvpphygoqws" path="res://assests/Pixel UI pack 3/CartoonDetective/Aim/Ammo_box.png" id="2_sh3et"]
+[ext_resource type="AudioStream" uid="uid://dm7th6x7w6xmh" path="res://assests/FreeSFX/GameSFX/PickUp/Retro PickUp 10.wav" id="3_ip0e8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2p1f5"]
 radius = 8.0
@@ -18,5 +19,10 @@ shape = SubResource("CircleShape2D_2p1f5")
 position = Vector2(-9.53674e-07, 0)
 scale = Vector2(0.4375, 0.5)
 texture = ExtResource("2_sh3et")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ip0e8")
+volume_db = 4.952
+pitch_scale = 1.02
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

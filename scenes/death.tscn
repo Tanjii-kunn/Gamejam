@@ -19,12 +19,7 @@ func _on_red_pressed() -> void:
 
 
 func _on_timer_timeout() -> void:
-	if Lvls.l1 == false:
-		get_tree().change_scene_to_file(\"res://scenes/main.tscn\")
-	elif Lvls.l2 == false:
-		pass
-	elif Lvls.l3 == false:
-		pass
+	get_tree().change_scene_to_file(\"res://scenes/loding_screen.tscn\")
 "
 
 [node name="death" type="Control"]
