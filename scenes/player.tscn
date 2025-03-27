@@ -323,8 +323,11 @@ wait_time = 0.3
 
 [node name="health" type="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("Player")]
 self_modulate = Color(1, 1, 1, 0.556863)
-offset_right = 47.0
-offset_bottom = 9.0
+z_index = 4
+offset_left = 2.0
+offset_top = 197.0
+offset_right = 49.0
+offset_bottom = 206.0
 scale = Vector2(9, 9)
 max_value = 10.0
 value = 10.0
@@ -337,19 +340,22 @@ Player = NodePath("../..")
 [node name="regent" type="Timer" parent="CanvasLayer/health"]
 
 [node name="ammo" type="Label" parent="CanvasLayer"]
-offset_top = 117.0
-offset_right = 123.0
-offset_bottom = 155.0
+z_index = 4
+offset_left = 2.0
+offset_top = 314.0
+offset_right = 125.0
+offset_bottom = 352.0
 theme_override_colors/font_color = Color(0.337255, 0.619608, 0.807843, 1)
 theme_override_fonts/font = ExtResource("40_cs1tg")
 theme_override_font_sizes/font_size = 40
 text = "Ammo:"
 
 [node name="no" type="Label" parent="CanvasLayer"]
-offset_left = 124.0
-offset_top = 118.0
-offset_right = 347.0
-offset_bottom = 156.0
+z_index = 4
+offset_left = 126.0
+offset_top = 315.0
+offset_right = 349.0
+offset_bottom = 353.0
 theme_override_colors/font_color = Color(0, 0.784314, 0.729412, 1)
 theme_override_fonts/font = ExtResource("40_cs1tg")
 theme_override_font_sizes/font_size = 40
