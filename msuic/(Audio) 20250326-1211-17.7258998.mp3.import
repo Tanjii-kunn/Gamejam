@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dlbg3i1qyhhgn"
+path="res://.godot/imported/(Audio) 20250326-1211-17.7258998.mp3-2164c375dfa38c6ca564bbf8e0d4a58e.mp3str"
+
+[deps]
+
+source_file="res://msuic/(Audio) 20250326-1211-17.7258998.mp3"
+dest_files=["res://.godot/imported/(Audio) 20250326-1211-17.7258998.mp3-2164c375dfa38c6ca564bbf8e0d4a58e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

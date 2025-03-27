@@ -79,12 +79,8 @@ func handle_jump():
 func handle_movement():
 	var direction := Input.get_axis("left", "right")
 	if direction:
-		if is_on_floor():
-			if not $AudioStreamPlayer2D.playing:
-				$AudioStreamPlayer2D.play()
 		velocity.x = direction * SPEED
 	else:
-		$AudioStreamPlayer2D.stop()
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	move_and_slide()
 

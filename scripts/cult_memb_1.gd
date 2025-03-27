@@ -16,7 +16,7 @@ var dmg: float = randf_range(2 ,5)
 var out:bool
 
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if out == false:
 		if cchealthh > 1:
 			if detected == false:

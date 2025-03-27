@@ -1,13 +1,13 @@
 ~ Intro
-Narrator: In this world, everything is controlled by the superiors…
-Narrator: And you, Ray…
-Narrator: You’re the best investigator we have.
-Narrator: Your mission: 
-Narrator: Is to uncover the truth behind the [wait=0.6] [shake rate=20 level=5]“Cult of Satan.”[/shake]
-Narrator: From this point on, you’re on your own.
-% Narrator: Good luck, Ray.
-% Narrator: Hope you make it out alive.
-% Narrator: See you on the other side… I hope.
+Author: In this world, everything is controlled by the superiors… That Stand On Top
+Author: And you, Ray…
+Author: You’re the best investigator we have.
+Author: Your mission: 
+Author: Is to uncover the truth behind the [wait=0.6] [shake rate=20 level=5]“Cult of Satan.”[/shake]
+Author: From this point on, you’re on your own.
+% Author: Good luck, Ray.
+% Author: Hope you make it out alive.
+% Author: See you on the other side… I hope.
 => END
 
 ~ death
@@ -17,7 +17,17 @@ Death: I have warned you, intruder… Yet if you still wish to proceed, so be it
 => END
 
 ~ lvl2
-Narrator: So, Ray You Reached The 2nd Floor of the basement, be carefull from now there-
-Narrator: Will be more enemies and I repeat be carefull Not to do anything Follish.
-Narrator: Good Luck!!
+Author: Ray,, there is a rumor that says how the people with higher hierarchy
+Author: Control all the actions of the government, It's said that all the people 
+Author: With Such Powerss Join this Cult to gain more power and Wealth
+=> END
+
+~ End
+Old Man: Bonjur! Ray, Welcome You Have Made It, what Do you think of this place? isn't it beautifull...
+Ray: Who are you, why are u here old man?
+Old Man: What Do you mean why am i here, I am, I am the Leader of this World. Behold My Power
+Ray: No You are not you'r just some old hag, not a leader I was informed that Satan Ruled this World
+Old Man: NOO NOO, It's me 
+Ray: Ok not a problem My mission was to kill the leader so let it be.
+Ray: Say You'r Last Wish... Old Man..
 => END

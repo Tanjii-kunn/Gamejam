@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://c53rcnwtjbt0j"]
+[gd_scene load_steps=12 format=3 uid="uid://c53rcnwtjbt0j"]
 
 [ext_resource type="Script" uid="uid://timvjo1q77yv" path="res://scripts/slime.gd" id="1_n6pvg"]
 [ext_resource type="Texture2D" uid="uid://d14yx4fdo8unl" path="res://assests/CartoonDetective/slime/slime_dead.png" id="1_p2gj0"]
 [ext_resource type="Texture2D" uid="uid://cenhkd8prbcou" path="res://assests/CartoonDetective/slime/slime_walk.png" id="2_n6pvg"]
+[ext_resource type="AudioStream" uid="uid://bee18wq3aykm0" path="res://msuic/thick-slime-4-229573.mp3" id="4_pjw23"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pjw23"]
 atlas = ExtResource("1_p2gj0")
@@ -52,10 +53,10 @@ animations = [{
 radius = 11.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p2gj0"]
-radius = 14.0
+radius = 20.0562
 
 [node name="slime" type="CharacterBody2D"]
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.7, 0.7)
 script = ExtResource("1_n6pvg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -65,48 +66,45 @@ animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2(0, 6)
+position = Vector2(0, 7.5)
 shape = SubResource("CircleShape2D_0l8pv")
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
-position = Vector2(0, 6)
+position = Vector2(0, 7.5)
 shape = SubResource("CircleShape2D_p2gj0")
 
 [node name="l" type="RayCast2D" parent="."]
-visible = false
-position = Vector2(-1, 5)
-target_position = Vector2(-26, 0)
+position = Vector2(5, 5)
+target_position = Vector2(-25, 0)
 
 [node name="r" type="RayCast2D" parent="."]
-visible = false
 position = Vector2(1, 5)
-target_position = Vector2(27, 0)
+target_position = Vector2(19, 0)
 
 [node name="dl" type="RayCast2D" parent="."]
-visible = false
-position = Vector2(-17, 11)
+position = Vector2(-17.5, 15)
 target_position = Vector2(0, 20)
 
 [node name="dr" type="RayCast2D" parent="."]
-visible = false
-position = Vector2(14, 11)
+position = Vector2(12.5, 15)
 target_position = Vector2(0, 20)
 
 [node name="up1" type="RayCast2D" parent="."]
-visible = false
 position = Vector2(7, 0)
-target_position = Vector2(0, -15)
+target_position = Vector2(0.142857, -24.2857)
 
 [node name="up2" type="RayCast2D" parent="."]
-visible = false
-position = Vector2(-7, 0)
-target_position = Vector2(0, -15)
+position = Vector2(-12.8571, 0)
+target_position = Vector2(0, -24.2857)
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_pjw23")
+volume_db = -3.501
+pitch_scale = 2.01
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

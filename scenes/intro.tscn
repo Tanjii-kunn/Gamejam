@@ -10,7 +10,7 @@ func _ready() -> void:
 	DialogueManager.show_dialogue_balloon(load(\"res://Dialoges/Introduction.dialogue\"))
 	await DialogueManager.dialogue_ended
 	await get_tree().create_timer(0.4).timeout
-	get_tree().change_scene_to_file(\"res://scenes/loding_screen.tscn\")
+	get_tree().change_scene_to_file(\"res://scenes/main.tscn\")
 
 func ani():
 	$CanvasLayer/AnimatedSprite2D.play()

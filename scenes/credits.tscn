@@ -1,0 +1,214 @@
+[gd_scene load_steps=26 format=3 uid="uid://c38s2i6ddbp3g"]
+
+[ext_resource type="FontFile" uid="uid://b8b175vxmn673" path="res://assests/Super Peace.ttf" id="1_0bpdh"]
+[ext_resource type="Script" uid="uid://c3trb4o84nwc" path="res://scenes/credits.gd" id="1_2fbfq"]
+[ext_resource type="FontFile" uid="uid://cspd80ajs8hie" path="res://assests/Silkscreen-Regular.ttf" id="3_g801i"]
+[ext_resource type="Texture2D" uid="uid://bxcrbairfkg7a" path="res://msuic/end/end/end_01.png" id="4_e4uir"]
+[ext_resource type="AudioStream" uid="uid://d3pl32ixrlsd" path="res://msuic/8bit Version Melancholic piano [26_3].wav" id="5_8gwij"]
+[ext_resource type="Texture2D" uid="uid://coar0xgx8ub48" path="res://msuic/end/end/end_02.png" id="5_g801i"]
+[ext_resource type="Texture2D" uid="uid://p5k7i5qm2q6m" path="res://msuic/end/end/end_03.png" id="6_4t8yx"]
+[ext_resource type="Texture2D" uid="uid://ne4g1tbfdgkj" path="res://msuic/end/end/end_04.png" id="7_5hxgf"]
+[ext_resource type="Texture2D" uid="uid://dnupjk8nln57m" path="res://msuic/end/end/end_05.png" id="8_8t73l"]
+[ext_resource type="Texture2D" uid="uid://btrs76487t7yk" path="res://msuic/end/end/end_06.png" id="9_u62as"]
+[ext_resource type="Texture2D" uid="uid://c27ygjfw4jack" path="res://msuic/end/end/end_07.png" id="10_gyrtj"]
+[ext_resource type="Texture2D" uid="uid://po6dp5dq6h7d" path="res://msuic/end/end/end_08.png" id="11_aqilg"]
+[ext_resource type="Texture2D" uid="uid://bskm8xm6882xa" path="res://msuic/end/end/end_09.png" id="12_ect1l"]
+[ext_resource type="Texture2D" uid="uid://cb0gbnvww3glf" path="res://msuic/end/end/end_10.png" id="13_75vm1"]
+[ext_resource type="Texture2D" uid="uid://dptly0p4sfolt" path="res://msuic/end/end/end_11.png" id="14_d7c3n"]
+[ext_resource type="Texture2D" uid="uid://c4fxplbob8ne" path="res://msuic/end/end/end_12.png" id="15_u1a4f"]
+[ext_resource type="Texture2D" uid="uid://2ssv3hwtinfm" path="res://msuic/end/end/end_13.png" id="16_d74sn"]
+[ext_resource type="Texture2D" uid="uid://bjh8icigk8f44" path="res://msuic/end/end/end_14.png" id="17_y3tsm"]
+[ext_resource type="Texture2D" uid="uid://bya6o45vw70ne" path="res://msuic/end/end/end_15.png" id="18_j5fw5"]
+[ext_resource type="Texture2D" uid="uid://1j7b37pama4f" path="res://msuic/end/end/end_16.png" id="19_l2ylx"]
+[ext_resource type="Texture2D" uid="uid://b0sv1pbmg351x" path="res://msuic/end/end/end_17.png" id="20_aw4ck"]
+
+[sub_resource type="Animation" id="Animation_2ckv8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.462745)]
+}
+
+[sub_resource type="Animation" id="Animation_0bpdh"]
+resource_name = "new_animation"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.36667, 8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.462745), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2ckv8"]
+_data = {
+&"RESET": SubResource("Animation_2ckv8"),
+&"new_animation": SubResource("Animation_0bpdh")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1wkb3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_e4uir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g801i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4t8yx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_5hxgf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_8t73l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_u62as")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_gyrtj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_aqilg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ect1l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_75vm1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_d7c3n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_u1a4f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_d74sn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_y3tsm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_j5fw5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_l2ylx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_aw4ck")
+}],
+"loop": false,
+"name": &"default",
+"speed": 9.0
+}]
+
+[node name="credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_right = 3.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2fbfq")
+
+[node name="w" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -641.0
+offset_top = -381.0
+offset_right = 1191.0
+offset_bottom = 709.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+self_modulate = Color(1, 0.803922, 0.768627, 0.976471)
+layout_mode = 0
+offset_left = 471.0
+offset_top = -94.0
+offset_right = 1356.0
+offset_bottom = -12.0
+theme_override_fonts/font = ExtResource("1_0bpdh")
+theme_override_font_sizes/font_size = 100
+text = "Thanks FOr Playing"
+
+[node name="w2" type="Label" parent="."]
+layout_mode = 0
+offset_left = -219.0
+offset_top = 111.0
+offset_right = 2182.0
+offset_bottom = 1136.0
+theme_override_fonts/font = ExtResource("3_g801i")
+theme_override_font_sizes/font_size = 50
+text = "Credits:
+
+
+Group major: Clown fish
+lead artist: Tiana Dstich
+2nd Artist: Reeve
+music composer: ElTisos
+Former Game Designer: Ntgg
+Shadow guy: R9_
+DIrected by: Idk
+
+
+
+
+FOr some sfx: Pixabay                                            coder: Zeni"
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -624.0
+offset_top = -393.0
+offset_right = 1208.0
+offset_bottom = 697.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.462745)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_2ckv8")
+}
+autoplay = "new_animation"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_8gwij")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(932.5, 498)
+scale = Vector2(12.0052, 11.5179)
+sprite_frames = SubResource("SpriteFrames_1wkb3")
+frame = 16
+frame_progress = 1.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(929, 499)
+scale = Vector2(1.34782, 1.76957)
+zoom = Vector2(0.5, 0.5)

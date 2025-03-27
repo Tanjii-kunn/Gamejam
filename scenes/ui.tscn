@@ -1,7 +1,63 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3obj2h82e1u1"]
+[gd_scene load_steps=16 format=3 uid="uid://c3obj2h82e1u1"]
 
 [ext_resource type="FontFile" uid="uid://b8b175vxmn673" path="res://assests/Super Peace.ttf" id="1_nt7q6"]
 [ext_resource type="Script" uid="uid://cwaf5h08i1qro" path="res://scripts/ui.gd" id="1_x4jx1"]
+[ext_resource type="Texture2D" uid="uid://cncvks7qbs1mj" path="res://assests/CartoonDetective/start/start/01.png" id="2_qsv74"]
+[ext_resource type="Texture2D" uid="uid://bnewffebcrwju" path="res://assests/CartoonDetective/start/start/02.png" id="3_h1mc3"]
+[ext_resource type="Texture2D" uid="uid://clsb3sfoiumo2" path="res://assests/CartoonDetective/start/start/03.png" id="4_cof4p"]
+[ext_resource type="Texture2D" uid="uid://8237ocrmy764" path="res://assests/CartoonDetective/start/start/04.png" id="5_f7tlh"]
+[ext_resource type="Texture2D" uid="uid://b86cvukbf27mn" path="res://assests/CartoonDetective/start/start/05.png" id="6_8k7j3"]
+[ext_resource type="Texture2D" uid="uid://d1itj3ehjfq0x" path="res://assests/CartoonDetective/start/start/06.png" id="7_jkdwc"]
+[ext_resource type="Texture2D" uid="uid://d2y6lepff6wal" path="res://assests/CartoonDetective/start/start/07.png" id="8_rlppe"]
+[ext_resource type="Texture2D" uid="uid://dff3omhcb6vth" path="res://assests/CartoonDetective/start/start/08.png" id="9_ycmcx"]
+[ext_resource type="Texture2D" uid="uid://dnkk5t1tj7dai" path="res://assests/CartoonDetective/start/start/09.png" id="10_kupmu"]
+[ext_resource type="Texture2D" uid="uid://chlvxdlj5m6vs" path="res://assests/CartoonDetective/start/start/10.png" id="11_catpy"]
+[ext_resource type="Texture2D" uid="uid://ddti0neoanedk" path="res://assests/CartoonDetective/start/start/11.png" id="12_41akx"]
+[ext_resource type="Texture2D" uid="uid://wgtepi1hvxs4" path="res://assests/CartoonDetective/start/start/12.png" id="13_sesyt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gglip"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qsv74")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_h1mc3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cof4p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_f7tlh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8k7j3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_jkdwc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_rlppe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ycmcx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_kupmu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_catpy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_41akx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_sesyt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -12,26 +68,25 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_x4jx1")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.664972, 0.0834829, 0.444577, 1)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(6, 5.78571)
+sprite_frames = SubResource("SpriteFrames_gglip")
+autoplay = "default"
+frame_progress = 0.200244
 
 [node name="play" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.425
 anchor_top = 0.383
 anchor_right = 0.575
 anchor_bottom = 0.489
-offset_left = 0.399994
-offset_top = -0.184006
-offset_right = -0.400024
-offset_bottom = 0.127991
+offset_left = 161.4
+offset_top = 155.816
+offset_right = 160.6
+offset_bottom = 156.128
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_nt7q6")
@@ -39,23 +94,15 @@ theme_override_font_sizes/font_size = 80
 text = "Play"
 flat = true
 
-[node name="options" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.425
-anchor_top = 0.56
-anchor_right = 0.573
-anchor_bottom = 0.667
-offset_left = -1.60001
-offset_top = 0.119995
-offset_right = -0.0960083
-offset_bottom = -0.216034
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_nt7q6")
-theme_override_font_sizes/font_size = 80
-text = "Options"
-flat = true
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 906.0
+offset_top = 434.0
+offset_right = 1056.0
+offset_bottom = 450.0
+max_value = 10.0
+value = 10.0
+rounded = true
 
 [connection signal="pressed" from="play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="options" to="." method="_on_options_pressed"]
+[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]

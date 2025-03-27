@@ -130,12 +130,14 @@ func healthdep():
 	if healtn.value > 0:
 		cchealthh -= dmg
 
-
 func _on_blastrd_body_entered(body: Node2D) -> void:
 	if body is player:
 		body.cchealth -= body.blastdmg
 	elif body is enemy:
 		body.cchealthh -= body.bldmg
+	call_deferred("_disable_collision")
+
+func _disable_collision() -> void:
 	$blastrd/CollisionShape2D.disabled = true
 	$Area2D/CollisionShape2D.disabled = true
 	$AnimatedSprite2D.visible = false

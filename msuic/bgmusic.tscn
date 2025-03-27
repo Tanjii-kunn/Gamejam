@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0c81r5p2vgf2"]
+
+[ext_resource type="AudioStream" uid="uid://beb0y2bnydsmv" path="res://msuic/bossfight tense sketch 1 [25_3].mp3" id="1_rln7m"]
+
+[node name="bgmusic" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_rln7m")
+volume_db = 1.967
+autoplay = true

@@ -1,8 +1,14 @@
-[gd_scene load_steps=58 format=3 uid="uid://xylsypkle4u6"]
+[gd_scene load_steps=63 format=3 uid="uid://xylsypkle4u6"]
 
 [ext_resource type="Script" uid="uid://bsreugbfyymb1" path="res://scripts/player.gd" id="1_f1ej7"]
 [ext_resource type="Texture2D" uid="uid://dxt7s00qv84p7" path="res://assests/CartoonDetective/Idle/idle.png" id="2_hax0n"]
+[ext_resource type="Texture2D" uid="uid://dhyo3ixqjwob0" path="res://assests/Pixel UI pack 3/CartoonDetective/Aim/Aim_01.png" id="2_holxr"]
+[ext_resource type="Texture2D" uid="uid://dw3gajhs8lhgf" path="res://assests/Pixel UI pack 3/CartoonDetective/Aim/Aim_02.png" id="3_mx1m4"]
+[ext_resource type="Texture2D" uid="uid://b4nj17mo6sxkl" path="res://assests/Pixel UI pack 3/CartoonDetective/Aim/Aim_03.png" id="4_4gjji"]
+[ext_resource type="Texture2D" uid="uid://dlj5yj22rpr6u" path="res://assests/Pixel UI pack 3/CartoonDetective/Aim/Aim_04.png" id="5_u2ulf"]
+[ext_resource type="Texture2D" uid="uid://bi4srwl7o0cce" path="res://assests/Pixel UI pack 3/CartoonDetective/Aim/Aim_05.png" id="6_6e8lb"]
 [ext_resource type="Texture2D" uid="uid://cj74q5c5dnoa1" path="res://assests/Pixel UI pack 3/CartoonDetective/Reload/Reload_01.png" id="6_jc3p3"]
+[ext_resource type="Texture2D" uid="uid://lobuvwnpfm7n" path="res://assests/Pixel UI pack 3/CartoonDetective/Aim/Aim_06.png" id="7_2gdjj"]
 [ext_resource type="Texture2D" uid="uid://c7ilg0bdfkiuh" path="res://assests/Pixel UI pack 3/CartoonDetective/Reload/Reload_02.png" id="7_hax0n"]
 [ext_resource type="Texture2D" uid="uid://dwuwegg7vwnjd" path="res://assests/Pixel UI pack 3/CartoonDetective/Reload/Reload_03.png" id="8_t4otl"]
 [ext_resource type="Texture2D" uid="uid://bwn1k5n8yxq2j" path="res://assests/Pixel UI pack 3/CartoonDetective/Reload/Reload_04.png" id="9_j2b1d"]
@@ -40,7 +46,6 @@
 [ext_resource type="Script" uid="uid://bs5v3ssxvmexd" path="res://scripts/health.gd" id="39_j2b1d"]
 [ext_resource type="AudioStream" uid="uid://ccm1taksicevc" path="res://msuic/mag-reload-81594.mp3" id="40_2dvfe"]
 [ext_resource type="FontFile" uid="uid://b8b175vxmn673" path="res://assests/Super Peace.ttf" id="40_cs1tg"]
-[ext_resource type="AudioStream" uid="uid://c1qeiy5nxt1xw" path="res://assests/FreeSFX/GameSFX/FootStep/Retro FootStep Grass 01.wav" id="41_2dvfe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t4otl"]
 atlas = ExtResource("2_hax0n")
@@ -92,6 +97,29 @@ region = Rect2(64, 64, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_u8vuu"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_holxr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mx1m4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4gjji")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_u2ulf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_6e8lb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2gdjj")
+}],
+"loop": false,
+"name": &"gunup",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_t4otl")
@@ -269,7 +297,9 @@ can_push = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1.28, 4.385)
 sprite_frames = SubResource("SpriteFrames_u8vuu")
-animation = &"idle"
+animation = &"gunup"
+frame = 5
+frame_progress = 1.0
 
 [node name="w" type="CollisionShape2D" parent="."]
 position = Vector2(2.38419e-07, -8.47033e-22)
@@ -340,11 +370,8 @@ frame_progress = 1.0
 
 [node name="reload" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("40_2dvfe")
-volume_db = 3.2
+volume_db = 0.919
 pitch_scale = 1.09
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("41_2dvfe")
 
 [connection signal="timeout" from="end" to="." method="_on_end_timeout"]
 [connection signal="timeout" from="CanvasLayer/health/regent" to="." method="_on_regent_timeout"]

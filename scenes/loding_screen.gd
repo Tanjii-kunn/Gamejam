@@ -12,3 +12,4 @@ func _ready() -> void:
 		get_tree().change_scene_to_file("res://scenes/lvl2.tscn")
 	elif Lvls.l3 == false:
 		get_tree().change_scene_to_file("res://scenes/lvl3.tscn")
+	reset_physics_interpolation()
